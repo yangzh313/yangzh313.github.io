@@ -10,6 +10,9 @@ It is just a place where i record something.
 
 * MySQL技术内幕-InnoDB存储引擎
   * [chap03 File](inside-mysql/file.md)
+  * [chap05 Index And Algorithm](inside-mysql/index%26algorithm.md)
+  * [chap06 Lock](inside-mysql/lock.md)
+  * [chap08 Backup And Restore](inside-mysql/backup%26restore.md)
 
 ## Python
 
