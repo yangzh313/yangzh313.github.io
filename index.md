@@ -21,3 +21,9 @@ It is just a place where i record something.
 ## Linux
 
 * [ncat端口转发](Linux/Linux端口转发.md)
+
+## C++
+
+* [leak check](./C%2B%2B/leak_check.md)
+* [mutex](./C%2B%2B/mutex.md)
+* [setmntent](./C%2B%2B/setmntent.md)
