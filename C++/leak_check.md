@@ -2,6 +2,11 @@
 
 ![pserve mem is large](images/pservuselargemem.png)
 
+## valgrind
+
+[download](https://valgrind.org/downloads/)
+[use](https://zhuanlan.zhihu.com/p/75416381)
+
 ## leak check with valgrind
 
 ```Shell
