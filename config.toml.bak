@@ -1,0 +1,9 @@
+baseurl = "http://81.68.115.208"
+languageCode = "zh"
+defaultContentLanguage = "zh"
+title = "Jacob Z"
+
+[params]
+  author = "Jacob"
+  email = "yangzh24@outlook.com"
+theme = "papermod"
