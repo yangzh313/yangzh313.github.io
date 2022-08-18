@@ -2,7 +2,7 @@ baseURL: https://yangzh313.github.io/
 languageCode: 
   - en-us
   - zh
-title: Jacob Zhao
+title: PeaceKeeper
 theme: "papermod"
 paginate: 3
 author:
@@ -19,7 +19,7 @@ params:
     - name: "github"
       url: "https://github.com/yangzh313"
   ShowReadingTime: true
-  author: "Jacob Zhao"
+  author: "Jacob"
   contact: "yangzh24@outlook.com"
   feedlinks: true
   # footer: "Powered by [Hugo](https://gohugo.io/) and the [Logseq](https://logseq.com/)."
