@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>C++ on PeaceKeeper</title><link>https://yangzh313.github.io/categories/c++/</link><description>Recent content in C++ on PeaceKeeper</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yangzh313.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml"/><item><title>【Linux】程序内获取文件系统挂载信息</title><link>https://yangzh313.github.io/page/c++/setmntent/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/setmntent/</guid><description>link
+Linux shell可通过查看/etc/mtab或者/proc/mounts文件来获取当前文件系统挂载信息
+程序内读取/etc/mtab或者/proc/mounts，解析字符串较为繁琐，可以使用mntent提供的方便函数：
+FILE *setmntent(const char *filename, const char *type); struct mntent *getmntent(FILE *filep); int endmntent(FILE *filep); （1）setmntent用来打开/etc/mtab或者同样格式的table文件 参数 filename为table文件的路径（例如/etc/mtab），参数type为打开文件的模式（与open类型，例如“r”为只读打开） 成功时，返回FILE指针（用于mntent操作），失败时返回NULL
+（2）getmntent用来读取文件的每一行，解析每一行的参数到mntent结构，mntent结构的存储空间是静态分配的（不需要free），结构的值会在下一次getmntent时被覆盖 mntent结构定义:
+struct mntent { char *mnt_fsname; /* 文件系统对应的设备路径或者服务器地址 */ char *mnt_dir; /* 文件系统挂载到的系统路径 */ char *mnt_type; /* 文件系统类型: ufs, nfs, 等 */ char *mnt_opts; /* 文件系统挂载参数，以逗号分隔 */ int mnt_freq; /* 文件系统备份频率（以天为单位） */ int mnt_passno; /* 开机fsck的顺序，如果为0，不会进行check */ }; 参数filep是setmntent返回的FILE指针 成功时返回指向mntent的指针，错误时返回NULL
+（3）endmntent用来关闭打开的table文件，总是返回1
+示例程序：
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;mntent.h&amp;gt; #include &amp;lt;errno.</description></item><item><title>leak check</title><link>https://yangzh313.github.io/page/c++/leak_check/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/leak_check/</guid><description>valgrind download use
+leak check with valgrind valgrind --leak-check=full --show-leak-kinds=all --tool=memcheck bin/protector-server -f -c /etc/protector/protector.conf ==952002== ==952002== HEAP SUMMARY: ==952002== in use at exit: 364,554 bytes in 983 blocks ==952002== total heap usage: 1,071,487 allocs, 1,070,504 frees, 642,510,809 bytes allocated ==952002== ==952002== 23 bytes in 1 blocks are still reachable in loss record 1 of 41 ==952002== at 0x4C31593: operator new(unsigned long) (vg_replace_malloc.c:344) ==952002== by 0x5756A0E: void std::__cxx11::basic_string&amp;lt;char, std::char_traits&amp;lt;char&amp;gt;, std::allocator&amp;lt;char&amp;gt; &amp;gt;::_M_construct&amp;lt;char*&amp;gt;(char*, char*, std::forward_iterator_tag) (basic_string.</description></item><item><title>mutex</title><link>https://yangzh313.github.io/page/c++/mutex/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/mutex/</guid><description>C++11中新增了，它是C++标准程序库中的一个头文件，定义了C++11标准中的一些互斥访问的类与方法等。其中std::mutex就是lock、unlock。std::lock_guard与std::mutex配合使用，把锁放到lock_guard中时，mutex自动上锁，lock_guard析构时，同时把mutex解锁。mutex又称互斥量。
+C++11标准库定义了4个互斥类：
+(1)、std::mutex：该类表示普通的互斥锁, 不能递归使用。
+(2)、std::timed_mutex：该类表示定时互斥锁，不能递归使用。std::time_mutex比std::mutex多了两个成员函数：
+A、try_lock_for()：函数参数表示一个时间范围，在这一段时间范围之内线程如果没有获得锁则保持阻塞；如果在此期间其他线程释放了锁，则该线程可获得该互斥锁；如果超时(指定时间范围内没有获得锁)，则函数调用返回false。
+B、try_lock_until()：函数参数表示一个时刻，在这一时刻之前线程如果没有获得锁则保持阻塞；如果在此时刻前其他线程释放了锁，则该线程可获得该互斥锁；如果超过指定时刻没有获得锁，则函数调用返回false。
+(3)、std::recursive_mutex：该类表示递归互斥锁。递归互斥锁可以被同一个线程多次加锁，以获得对互斥锁对象的多层所有权。例如，同一个线程多个函数访问临界区时都可以各自加锁，执行后各自解锁。std::recursive_mutex释放互斥量时需要调用与该锁层次深度相同次数的unlock()，即lock()次数和unlock()次数相同。可见，线程申请递归互斥锁时，如果该递归互斥锁已经被当前调用线程锁住，则不会产生死锁。此外，std::recursive_mutex的功能与 std::mutex大致相同。
+(4)、std::recursive_timed_mutex：带定时的递归互斥锁。
+互斥类的最重要成员函数是lock()和unlock()。在进入临界区时，执行lock()加锁操作，如果这时已经被其它线程锁住，则当前线程在此排队等待。退出临界区时，执行unlock()解锁操作。
+用于互斥锁的RAII的类模板：更好的办法是采用”资源分配时初始化”(RAII)方法来加锁、解锁，这避免了在临界区中因为抛出异常或return等操作导致没有解锁就退出的问题。极大地简化了程序员编写Mutex相关的异常处理代码。C++11的标准库中提供了std::lock_guard类模板做mutex的RAII。
+std::mutex类是一个同步原语，可用于保护共享数据被同时由多个线程访问。std::mutex提供独特的，非递归的所有权语义。
+std::mutex是C++11中最基本的互斥量，std::mutex对象提供了独占所有权的特性，不支持递归地对std::mutex对象上锁。
+std::mutex成员函数：
+(1)、构造函数：std::mutex不支持copy和move操作，最初的std::mutex对象是处于unlocked状态。
+(2)、lock函数：互斥锁被锁定。线程申请该互斥锁，如果未能获得该互斥锁，则调用线程将阻塞(block)在该互斥锁上；如果成功获得该互诉锁，该线程一直拥有该互斥锁直到调用unlock解锁；如果该互斥锁已经被当前调用线程锁住，则产生死锁(deadlock)。
+(3)、unlock函数：解锁，释放调用线程对该互斥锁的所有权。
+(4)、try_lock：尝试锁定互斥锁。如果互斥锁被其他线程占有，则当前调用线程也不会被阻塞，而是由该函数调用返回false；如果该互斥锁已经被当前调用线程锁住，则会产生死锁。其中std::mutex就是lock、unlock。std::lock_guard与std::mutex配合使用，把锁放到lock_guard中时，mutex自动上锁，lock_guard析构时，同时把mutex解锁。
+(5)、native_handle：返回当前句柄。
+std::mutex: A mutex is a lockable object that is designed to signal when critical sections of code need exclusive access, preventing other threads with the same protection from executing concurrently and access the same memory locations. std::mutex objects provide exclusive ownership and do not support recursivity (i.e., a thread shall not lock a mutex it already owns).</description></item></channel></rss>

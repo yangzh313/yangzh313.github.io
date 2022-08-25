@@ -1,2 +1,93 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PeaceKeeper</title><link>https://yangzh313.github.io/</link><description>Recent content on PeaceKeeper</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://yangzh313.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://yangzh313.github.io/pages/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/pages/</guid><description>Welcome to My GitHub Pages It is just a place where i record something.
-GoLang navicat&amp;amp;mysql MySQL MySQL技术内幕-InnoDB存储引擎 chap03 File chap05 Index And Algorithm chap06 Lock chap08 Backup And Restore Python HttpRunner支持并发执行 Linux ncat端口转发 C++ leak check mutex setmntent</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PeaceKeeper</title><link>https://yangzh313.github.io/</link><description>Recent content on PeaceKeeper</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 18 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yangzh313.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>【第一章】做好准备Getting Started</title><link>https://yangzh313.github.io/page/mysql/mysqlwithmosh/%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87getting-started/</link><pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/mysqlwithmosh/%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87getting-started/</guid><description>介绍 什么是SQL A DATABASE is a collection of data stored in a format that can easily be accessed, 数据库是一个以易访问格式存储的数据集合
+为了管理我们的数据库，我们使用一种叫做数据库管理系统（DBMS, Database Management System）的软件。
+分为关系型SQL和非关系型NoSQL两类数据库，在更修行的关系型数据库中，我们把数据存储在通过某些关系相互关联的数据表中，每张表储存特定的一类数据。
+SQL(structured query language，结构化查询语言)是专门用来处理关系型数据库的标准语言
+不同DBMS语法略有不同，但都是基于SQL
+MySQL安装 创建数据库 导入datebase出错，可以将utf8mb4替换为utf8，utf8mb4_0900_ai_ci替换为utf8_general_ci</description></item><item><title>SQL进阶教程-Mosh</title><link>https://yangzh313.github.io/page/mysql/mysqlwithmosh/sql%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B-mosh/</link><pubDate>Thu, 18 Aug 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/mysqlwithmosh/sql%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B-mosh/</guid><description>【中字】SQL进阶教程 | 史上最易懂SQL教程！10小时零基础成长SQL大师！！_哔哩哔哩_bilibili
+课程：Mosh_完全掌握SQL【笔记】 - 知乎 (zhihu.com)
+目录 第一部分：基础——增删查改 【第一章】做好准备Getting Started</description></item><item><title>【Linux】程序内获取文件系统挂载信息</title><link>https://yangzh313.github.io/page/c++/setmntent/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/setmntent/</guid><description>link
+Linux shell可通过查看/etc/mtab或者/proc/mounts文件来获取当前文件系统挂载信息
+程序内读取/etc/mtab或者/proc/mounts，解析字符串较为繁琐，可以使用mntent提供的方便函数：
+FILE *setmntent(const char *filename, const char *type); struct mntent *getmntent(FILE *filep); int endmntent(FILE *filep); （1）setmntent用来打开/etc/mtab或者同样格式的table文件 参数 filename为table文件的路径（例如/etc/mtab），参数type为打开文件的模式（与open类型，例如“r”为只读打开） 成功时，返回FILE指针（用于mntent操作），失败时返回NULL
+（2）getmntent用来读取文件的每一行，解析每一行的参数到mntent结构，mntent结构的存储空间是静态分配的（不需要free），结构的值会在下一次getmntent时被覆盖 mntent结构定义:
+struct mntent { char *mnt_fsname; /* 文件系统对应的设备路径或者服务器地址 */ char *mnt_dir; /* 文件系统挂载到的系统路径 */ char *mnt_type; /* 文件系统类型: ufs, nfs, 等 */ char *mnt_opts; /* 文件系统挂载参数，以逗号分隔 */ int mnt_freq; /* 文件系统备份频率（以天为单位） */ int mnt_passno; /* 开机fsck的顺序，如果为0，不会进行check */ }; 参数filep是setmntent返回的FILE指针 成功时返回指向mntent的指针，错误时返回NULL
+（3）endmntent用来关闭打开的table文件，总是返回1
+示例程序：
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;mntent.h&amp;gt; #include &amp;lt;errno.</description></item><item><title>1-8 navicat and mysql</title><link>https://yangzh313.github.io/page/mysql/chap01-go/navicat_and_mysql/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/chap01-go/navicat_and_mysql/</guid><description>1 安装MySQL 1.1 docker安装MySQL 1.2 通过镜像启动 [root@yang ~]# docker run -p 3306:3306 --name mymysql -v $PWD/conf:/etc/mysql/conf.d -v $PWD/logs:/logs -v $PWD/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7 -v $PWD/conf:/etc/mysql/conf.d: 将主机当前目录下的conf/my.cnf挂载到容器的/etc/mysql/my.cnf -v $PWD/logs:/logs: 将主机当前目录下的logs目录挂载到容器的/logs -v $PWD/data:/var/lib/mysql 将主机当前目录下的data目录挂载到容器的/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 初始化root用户的密码 1.3 进入容器配置 进入容器启动mysql [root@yang ~]# docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 6fed3a0f193b mysql:5.7 &amp;#34;docker-entrypoint.s…&amp;#34; About an hour ago Up About an hour 0.0.0.0:3306-&amp;gt;3306/tcp, 33060/tcp mymysql d3cac0da1248 hello-world &amp;#34;/hello&amp;#34; 37 hours ago Exited (0) 37 hours ago determined_goldberg [root@yang ~]# [root@yang ~]# docker exec -it 6fed3a0f193b /bin/bash root@6fed3a0f193b:/# root@6fed3a0f193b:/# mysql -uroot -p123456 mysql: [Warning] Using a password on the command line interface can be insecure.</description></item><item><title>inside mysql 5 索引与算法</title><link>https://yangzh313.github.io/page/mysql/inside-mysql/index_and_algorithm/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/inside-mysql/index_and_algorithm/</guid><description>5.1 InnoDB存储引擎索引概述 B+树索引 全文索引 哈希索引 B+树类似于二叉树，从平衡二叉树演化而来，根据键值快速查找到数据。 B+树能找到的只是被查找数据行所在的页。然后数据库把页读入到内存，再在内存中查找具体的数据。
+5.2 数据结构与算法 二分查找法（binary search） 每页Page Directory中的槽是按照主键的顺序存放的，对于某一条具体记录的查询是通过对Page Directory进行二分查找得到的。
+5.2.2 二叉查找树和平衡二叉树 二叉查找树：左子树小于根，右子树大于根。 若想最大性能地构造一棵二叉查找树，需要这棵二叉查找树是平衡的。 平衡二叉树（AVL树）：首先符合二叉查找树，其次满足任何节点的两个子树的高度最大差为1.插入、更新和删除操作需要通过左旋和右旋来完成，具有一定的维护开销。
+5.3 B+树 在B+树中，所有记录节点都是按键值的大小顺序存放在同一层的叶子节点上，由各叶子节点指针进行连接。 旋转发生在Leaf Page已经满，但是左右兄弟节点没有满的情况下。此时会将记录移到所在页的兄弟节点上，而不是做拆分页的操作。</description></item><item><title>inside mysql 6 Lock</title><link>https://yangzh313.github.io/page/mysql/inside-mysql/lock/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/inside-mysql/lock/</guid><description>一方面最大程度地利用数据库的并发访问，另外一方面还要却确保每个用户能以一致的方式读取和修改数据。
+6.1 What is lock? 锁机制用于管理对共享资源的并发访问。数据库系统使用锁是为了支持对共享资源进行并发访问，提供数据的完整性和一致性。
+6.2 lock and latch latch，轻量级锁，锁定时间短，否则性能差。在InnoDB中，分为mutex（互斥锁）和rwlock（读写锁）。通常没有死锁检测机制。目的是保证并发线程操作临界资源的正确性。 lock，对象是事务，如表、页、行。一般在事务commit或rollback后释放。具有死锁机制。
+6.3 InnoDB存储引擎中的锁 6.3.1 type 行级锁：
+共享锁（S Lock），允许事务读一行数据。 排他锁（X Lock），允许事务删除或更新一行数据。 X锁与任何锁都不兼容，而S锁仅和S锁兼容。
+InnoDB存储引擎支持多粒度（granular）锁定，这种锁定允许事务在航机上的锁和表级上的锁同时存在，称为意向锁（Intention Lock）。 其意向锁为表级别的锁，设计的目的主要是为了在一个事务中解释下一行将被请求的锁类型。支持两种意向锁：
+意向共享锁（IS Lock），事务想要获得一张表中某几行的共享锁。 意向排他锁（IX Lock），事务想要获得一张表中某几行的排他锁。 由于InnoDB存储引擎支持的是行级别的锁，因此意向锁其实不会阻塞除全表扫意外的任何请求。
+6.3.2 一致性非锁定读 consistent nonlocking read是指通过行多版本空值的方式读取当前执行时间数据库中行的数据。如果读取的行正在执行DELETE或UPDATE操作，此时不会等待锁的释放，而是读取行的一个快照数据。
+一个行记录可能有不止一个快照数据，一把称这种技术为行多版本技术。由此带来的并发控制，称之为多版本控制(Multi Version Concurrency Control, MVCC).
+对于REPEATABLE READ的事务隔离级别，总是读取事务开始时的行数据。对于READ COMMITTED的事务隔离级别，它总是读取行的最新版本。
+6.3.3 一致性锁定读 InnoDB存储引擎对于SELECT语句支持两种一致性的锁定读操作：
+SELECT&amp;hellip;FOR UPDATE SELECT&amp;hellip;LOCK IN SHARE MODE 6.3.4 自增长与锁 在InnoDB存储引擎的内存结构中，对每个含有自增长值的表都有一个自增长计数器。
+6.3.5 外键和锁 对于一个外键列，如果没有显示地对这个列加索引，InnoDB存储引擎自动对其加一个索引，这样可以避免表锁。
+6.4 锁的算法 6.4.1 行锁的3种算法 Record Lock：单个行记录上的锁 Gap Lock：间隙锁，锁定一个范围，但不包括记录本身 Next-Key Lock：Gap Lock+Record Lock，锁定一个范围，并且锁定记录本身 6.</description></item><item><title>inside mysql 7 Transaction</title><link>https://yangzh313.github.io/page/mysql/inside-mysql/transaction/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/inside-mysql/transaction/</guid><description>MySQL 事务的隔离级别
+InnoDB存储引擎中得事务完全符合ACID特性：
+原子性（atomicity） 一致性（consistency） 隔离性（isolation） 持久性（durability） 7.1 认识事务 7.1.1 概述 事务时访问并更新数据库中各种数据项得一个程序执行单元。在事务中得操作，要么都做修改，要么都不做，这就是事务得目的。
+A（atomicity），原子性。原子性指整个数据库事务是不可分割得工作单位。只有使事务中所有的数据库操作都执行成功，才算整个事务成功。事务中的任何SQL语句执行失败，必须回退到执行事务前的状态。 例如，用户从ATM机上取钱，不能用户钱未取到，但是钱已经扣了。
+C（consistency），一致性。一致性指事务将数据库从一种状态转变为下一种一致的状态。在事务开始和事务结束以后，数据库的完整性约束没有被破坏。 例如，在表中有一个字段为姓名，为唯一约束，如果一个事务对其进行修改，但是在事务提交或发生回滚后，表中的姓名变得非唯一，则破坏了一致性。
+I（isolation），隔离性。隔离性要求每个读写事务的对象对其他事务的操作对象能相互分离，即该事务提交前对其他事务都不可见，通常用锁实现。
+D（durability），持久性。事务一旦提交，其结果就是永久性的。即使发生宕机等故障，数据库也能将数据恢复。持久性保证事务系统的高可靠性，而不是高可用性。
+7.1.2 分类 从事务理论的角度来说，可以把事务分为以下几种类型：
+扁平事务（Flat Transactions） 带有保存点的扁平事务（Flat Transactions with Savepoints） 链事务（Chained Transactions） 嵌套事务（Nested Transactions） 分布式事务（Distributed Transactions） 扁平事务是事务类型中最简单的一种，但在实际生产环境中，可能是使用最为频繁的事务。在扁平事务中，所有操作都处于同一层次，有BEGIN WORK开始，COMMIT WORK或ROLLBACK WORK结束，期间的操作是原子的，要么都执行，要么都回滚。
+带有保存点的扁平事务，除了支持扁平事务支持的操作外，允许在事务执行过程中回滚到同一事务中较早的一个状态。保存点用来通知系统应该记住事务当前的状态，以前发生错误，事务能回到保存点当时的状态。
+链事务可视为保存点模式的一种变种。带有保存点的扁平事务，保存点是易失的（volatile），而非持久的。意味着恢复时，事务需要从开始处重新执行。 链事务的思想是：在提交一个事务时，释放不需要的数据对象，将必要的处理上下文隐式地传给下一个要开始的事务。提交事务操作和开始下一个事务操作合并为一个原子操作。 链事务中的回滚仅限于当前事务，即只能恢复到最近一个的保存点。对于锁的处理，锁事务在执行COMMIT后即释放了当前事务所持有的锁。
+嵌套事务是一个层次结构框架。由一个顶层事务（top-level transaction）控制着各个层次的事务。
+分布式事务通常是在一个分布式环境下运行的扁平事务，因此需要根据数据所在位置访问网络中的不同节点。 例如用户在ATM机（A）从招商银行（B）转账到工商银行（C），A发出转账，B减去10000，C加上10000，A通知用户操作完成或者操作失败。A不能通过调用一台数据库就完成任务，每个节点的数据库执行的事务操作都是扁平的。对于分布式事务，同样需要满足ACID特性，要么都发生，要么都失效。
+InnoDB对于嵌套事务，并不原生支持。
+7.2 事务的实现 事务隔离性由锁来实现。redo log称为重做日志，用来保证事务的原子性和持久性。undo log用来保证事务的一致性。 redo和undo的作用都可以视为一种恢复操作，redo恢复提交事务修改的页操作，undo回滚行记录到某个特定版本。redo通常是物理日志，undo是逻辑日志。
+7.2.1 redo 1. 基本概念 redo log由两部分组成：一是内存中的重做日志缓冲（redo log buffer），其实易失的；二十重做日志文件（redo log file），其实持久的。 InnoDB通过Force Log at Commit机制实现事务的持久性。即当事务提交时，必须先将该事务的所有日志写入到重做日志文件进行持久化，待事务的COMMIT操作完成才算完成。 为了确保每次日志都写入重做日志文件，在每次将重做日志缓冲写入重做日志文件后，InnoDB存储引擎都需要调用一次fsync操作。由于重做日志打开并没有使用O_DIRECT选项，因此重做日志缓冲先写入文件系统缓存。为了确保重做日志写入磁盘，必须进行一次fsync操作。fsync的效率取决于磁盘的性能，因此磁盘的性能决定了事务提交的性能，也就是数据库的性能。 参数innodb_flush_log_at_trx_commit用来控制重做日志刷新到磁盘的策略。默认值为1，表示事务提交时必须调用一次fsync。0表示事务提交时不进行写入重做日志操作，这个操作仅在master thread中完成，即每1秒进行一次fsync。2表示事务提交时将重做日志写入重做日志文件，仅写入文件系统缓存，当数据库宕机二操作系统不发生宕机，事务不会丢失。 设置innodb_flush_log_at_trx_commit为0或2可以提高事务提交的性能，但丧失了事务的ACID特性。为了提高性能，多次操作可合并到一次COMMIT中来进行。 binlog与redo log不同的是：</description></item><item><title>inside mysql 8 backup and restore</title><link>https://yangzh313.github.io/page/mysql/inside-mysql/backup_and_restore/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/inside-mysql/backup_and_restore/</guid><description>8.6 snapshot backup 写时复制（COW, copy on write）: 当创建一个快照时，仅复制原始卷中数据的元数据，并不会有数据的物理操作，因此快照的创建过程非常快。当快照创建完成，原始卷上有写操作时，快照会跟踪原始卷块的改变，将要改变的数据在改变之前复制到快照预留的空间里。 对于快照的读取操作，如果读取的数据块时创建快照后没有修改过的，那么会将读操作直接重定向到原始卷上，如果要读取的是已经修改过的快，则将读取保存在快照中该块在原始卷上改变之前的数据。 因此，采用写时复制机制保证了读取快照时得到的数据与快照创建时一致。
+用LVM快照备份InnoDB存储引擎表，只要把与InnoDB存储引擎相关的文件如共享表空间、独立表空间、重做日志文件等放在同一个逻辑卷中，然后对这个逻辑卷做快照备份即可。 在对InnoDB存储引擎文件做快照时，数据库无需关闭，即可在线备份。虽然此时数据库可能还有任务需要往磁盘上写数据，但这不会妨碍备份的正确性。因为其是事务安全的引擎，在下次恢复时，数据库会自动检查表空间中页的状态，并决定是否应用重做日志，恢复就好像数据库被意外重启了。</description></item><item><title>inside mysql File</title><link>https://yangzh313.github.io/page/mysql/inside-mysql/file/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/mysql/inside-mysql/file/</guid><description>参数文件 什么是参数 可以把数据库参数看程一个键值对。
+参数类型 动态（dynamic）参数 静态（static）参数 日志文件 错误日志（error log） 二进制日志（binlog） 慢查询日志（slow query log） 查询日志（log） 错误日志 错误日志文件对MySQL的启动、运行、关闭过程进行了记录。在遇到问题时应该首先查看该文件以便定位问题。
+慢查询日志 帮助DBA定位可能存在问题的SQL语句，从而进行SQL语句层面的优化。
+查询日志 记录了所有对MySQL数据库请求的信息，无论这些请求是否得到了正确的执行。默认文件名：主机名.log。
+二进制日志 记录了对MySQL数据库执行更改的所有操作，但是不包含SELECT和SHOW这类操作，因为这类操作对数据本身并没有修改。
+二进制日志主要有以下几种作用：
+恢复（recovery）：某些数据的恢复需要二进制文件，可以进行point-in-time的恢复。 复制（replication）：是一台远程的MySQL数据库（slave或standby）与一台MySQL数据库（master或primary）进行实时同步。 审计（audit）：通过二进制日志中的信息判断是否有对数据库进行注入的攻击。 开启二进制日志会使性能下降1%。
+套接字文件 在UNIX系统下本地连接MySQL可以采用UNIX域套接字方式，这种方式需要一个套接字文件。一般为/tmp/mysql.sock。
+pid文件 当MySQL实例启动时，会将自己的进程ID写入一个文件中&amp;ndash;该文件即为pid文件。
+表结构定义文件 因为MySQL插件式存储引擎的体系结构的关系，数据的存储是根据表进行的，每个表都会有与之对应的文件。不论何种引擎，会有一个.frm后缀名的文件记录表结构定义。
+InnoDB存储引擎文件 包括重做日志文件、表空间文件
+表空间文件 InnoDB采用将存储的数据按表空间（tablespace）进行存放的设计。默认的表空间文件的配置名为ibdata。设置innodb_data_file_path参数后，所有基于InnoDB存储引擎的表的数据都会记录到该共享表空间中。若设置了innodb_file_per_table，则用户可以将每个基于InnoDB存储引擎的表产生一个独立表空间，命名规则为：表名.ibd。
+重做日志文件 默认情况下，在InnoDB存储引擎的数据目录下会有两个名为ib_logfile0和ib_logfile1的文件。记录了对于InnoDB存储引擎的事务日志。
+当实例或介质失败（media failure）时，重做日志文件就能派上用场。
+在日志组中每个重做日志文件的大小一致，并以循环写入的方式运行。InnoDB存储引擎先写重做日志文件1，当达到文件的最后时，切换到2，再当2也被写满时，会再切换到1中。
+重做日志文件不能设置太大，太大在恢复时需要很长的时间；设置太小会导致一个事务的日志需要多次切换重做日志文件，此外会频繁发生async checkpoint，导致性能的抖动。
+从重做日志缓存是按512字节也就是一个扇区的大小写入磁盘。扇区是写入的最小单位，因此可以保证写入必定是成功的。
+为了保持事务的ACID中的持久性，必须将innodb_flush_log_at_trx_commit设置为1，也就是每当事务提交时，必须确保事务都已经写入重做日志文件。</description></item><item><title>leak check</title><link>https://yangzh313.github.io/page/c++/leak_check/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/leak_check/</guid><description>valgrind download use
+leak check with valgrind valgrind --leak-check=full --show-leak-kinds=all --tool=memcheck bin/protector-server -f -c /etc/protector/protector.conf ==952002== ==952002== HEAP SUMMARY: ==952002== in use at exit: 364,554 bytes in 983 blocks ==952002== total heap usage: 1,071,487 allocs, 1,070,504 frees, 642,510,809 bytes allocated ==952002== ==952002== 23 bytes in 1 blocks are still reachable in loss record 1 of 41 ==952002== at 0x4C31593: operator new(unsigned long) (vg_replace_malloc.c:344) ==952002== by 0x5756A0E: void std::__cxx11::basic_string&amp;lt;char, std::char_traits&amp;lt;char&amp;gt;, std::allocator&amp;lt;char&amp;gt; &amp;gt;::_M_construct&amp;lt;char*&amp;gt;(char*, char*, std::forward_iterator_tag) (basic_string.</description></item><item><title>mutex</title><link>https://yangzh313.github.io/page/c++/mutex/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/mutex/</guid><description>C++11中新增了，它是C++标准程序库中的一个头文件，定义了C++11标准中的一些互斥访问的类与方法等。其中std::mutex就是lock、unlock。std::lock_guard与std::mutex配合使用，把锁放到lock_guard中时，mutex自动上锁，lock_guard析构时，同时把mutex解锁。mutex又称互斥量。
+C++11标准库定义了4个互斥类：
+(1)、std::mutex：该类表示普通的互斥锁, 不能递归使用。
+(2)、std::timed_mutex：该类表示定时互斥锁，不能递归使用。std::time_mutex比std::mutex多了两个成员函数：
+A、try_lock_for()：函数参数表示一个时间范围，在这一段时间范围之内线程如果没有获得锁则保持阻塞；如果在此期间其他线程释放了锁，则该线程可获得该互斥锁；如果超时(指定时间范围内没有获得锁)，则函数调用返回false。
+B、try_lock_until()：函数参数表示一个时刻，在这一时刻之前线程如果没有获得锁则保持阻塞；如果在此时刻前其他线程释放了锁，则该线程可获得该互斥锁；如果超过指定时刻没有获得锁，则函数调用返回false。
+(3)、std::recursive_mutex：该类表示递归互斥锁。递归互斥锁可以被同一个线程多次加锁，以获得对互斥锁对象的多层所有权。例如，同一个线程多个函数访问临界区时都可以各自加锁，执行后各自解锁。std::recursive_mutex释放互斥量时需要调用与该锁层次深度相同次数的unlock()，即lock()次数和unlock()次数相同。可见，线程申请递归互斥锁时，如果该递归互斥锁已经被当前调用线程锁住，则不会产生死锁。此外，std::recursive_mutex的功能与 std::mutex大致相同。
+(4)、std::recursive_timed_mutex：带定时的递归互斥锁。
+互斥类的最重要成员函数是lock()和unlock()。在进入临界区时，执行lock()加锁操作，如果这时已经被其它线程锁住，则当前线程在此排队等待。退出临界区时，执行unlock()解锁操作。
+用于互斥锁的RAII的类模板：更好的办法是采用”资源分配时初始化”(RAII)方法来加锁、解锁，这避免了在临界区中因为抛出异常或return等操作导致没有解锁就退出的问题。极大地简化了程序员编写Mutex相关的异常处理代码。C++11的标准库中提供了std::lock_guard类模板做mutex的RAII。
+std::mutex类是一个同步原语，可用于保护共享数据被同时由多个线程访问。std::mutex提供独特的，非递归的所有权语义。
+std::mutex是C++11中最基本的互斥量，std::mutex对象提供了独占所有权的特性，不支持递归地对std::mutex对象上锁。
+std::mutex成员函数：
+(1)、构造函数：std::mutex不支持copy和move操作，最初的std::mutex对象是处于unlocked状态。
+(2)、lock函数：互斥锁被锁定。线程申请该互斥锁，如果未能获得该互斥锁，则调用线程将阻塞(block)在该互斥锁上；如果成功获得该互诉锁，该线程一直拥有该互斥锁直到调用unlock解锁；如果该互斥锁已经被当前调用线程锁住，则产生死锁(deadlock)。
+(3)、unlock函数：解锁，释放调用线程对该互斥锁的所有权。
+(4)、try_lock：尝试锁定互斥锁。如果互斥锁被其他线程占有，则当前调用线程也不会被阻塞，而是由该函数调用返回false；如果该互斥锁已经被当前调用线程锁住，则会产生死锁。其中std::mutex就是lock、unlock。std::lock_guard与std::mutex配合使用，把锁放到lock_guard中时，mutex自动上锁，lock_guard析构时，同时把mutex解锁。
+(5)、native_handle：返回当前句柄。
+std::mutex: A mutex is a lockable object that is designed to signal when critical sections of code need exclusive access, preventing other threads with the same protection from executing concurrently and access the same memory locations. std::mutex objects provide exclusive ownership and do not support recursivity (i.e., a thread shall not lock a mutex it already owns).</description></item><item><title>ncat端口转发</title><link>https://yangzh313.github.io/page/linux/linux%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</link><pubDate>Sun, 08 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/linux/linux%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</guid><description>参考 Linux端口转发的几种常用方法
+ncat 安装ncat
+yum install nmap-ncat 监听本机11180端口，将数据转发到179.19.3.111得8080端口
+ncat --sh-exec &amp;#34;ncat 179.19.3.111 8080&amp;#34; -l 11180 --keep-open</description></item><item><title>HttpRunner支持并发执行</title><link>https://yangzh313.github.io/page/test/httprunner_pytest_concurrency/</link><pubDate>Wed, 13 Apr 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/test/httprunner_pytest_concurrency/</guid><description>Pytest多进程并发执行 Pytest(十六)多进程并发执行
+安装pytest-xdist
+# pip install pytest-xdist -n 指定并发数
+pytest test_11.py -n 2 -s HttpRunner并发 指定2个测试用例
+@pytest.mark.parametrize(&amp;#34;param&amp;#34;, [{ &amp;#34;resourceMeta&amp;#34;: info_list[1] },{ &amp;#34;resourceMeta&amp;#34;: info_list[3] }]) def test_start(self, param): super().test_start(param) 发起2个并发的任务
+./hrun -n 2 --alluredir=/root/allure-server/allure-results/--capture=tee-sys testcases/v1.4/case_PERFORMANCE_7_multi_backup_restore_test.py 结果
+2022-04-13 09:49:36.164 | INFO | httprunner.make:__make:515 - make path: /root/zy/stability_test/testcases/v1.4/case_PERFORMANCE_7_multi_backup_restore_test.py 2022-04-13 09:49:36.164 | INFO | httprunner.make:format_pytest_with_black:170 - format pytest cases with black ... Usage: black [OPTIONS] SRC ... One of &amp;#39;SRC&amp;#39; or &amp;#39;code&amp;#39; is required. 2022-04-13 09:49:36.</description></item></channel></rss>

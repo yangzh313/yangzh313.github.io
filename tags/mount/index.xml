@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>mount on PeaceKeeper</title><link>https://yangzh313.github.io/tags/mount/</link><description>Recent content in mount on PeaceKeeper</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 20 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://yangzh313.github.io/tags/mount/index.xml" rel="self" type="application/rss+xml"/><item><title>【Linux】程序内获取文件系统挂载信息</title><link>https://yangzh313.github.io/page/c++/setmntent/</link><pubDate>Fri, 20 May 2022 00:00:00 +0000</pubDate><guid>https://yangzh313.github.io/page/c++/setmntent/</guid><description>link
+Linux shell可通过查看/etc/mtab或者/proc/mounts文件来获取当前文件系统挂载信息
+程序内读取/etc/mtab或者/proc/mounts，解析字符串较为繁琐，可以使用mntent提供的方便函数：
+FILE *setmntent(const char *filename, const char *type); struct mntent *getmntent(FILE *filep); int endmntent(FILE *filep); （1）setmntent用来打开/etc/mtab或者同样格式的table文件 参数 filename为table文件的路径（例如/etc/mtab），参数type为打开文件的模式（与open类型，例如“r”为只读打开） 成功时，返回FILE指针（用于mntent操作），失败时返回NULL
+（2）getmntent用来读取文件的每一行，解析每一行的参数到mntent结构，mntent结构的存储空间是静态分配的（不需要free），结构的值会在下一次getmntent时被覆盖 mntent结构定义:
+struct mntent { char *mnt_fsname; /* 文件系统对应的设备路径或者服务器地址 */ char *mnt_dir; /* 文件系统挂载到的系统路径 */ char *mnt_type; /* 文件系统类型: ufs, nfs, 等 */ char *mnt_opts; /* 文件系统挂载参数，以逗号分隔 */ int mnt_freq; /* 文件系统备份频率（以天为单位） */ int mnt_passno; /* 开机fsck的顺序，如果为0，不会进行check */ }; 参数filep是setmntent返回的FILE指针 成功时返回指向mntent的指针，错误时返回NULL
+（3）endmntent用来关闭打开的table文件，总是返回1
+示例程序：
+#include &amp;lt;stdio.h&amp;gt; #include &amp;lt;mntent.h&amp;gt; #include &amp;lt;errno.</description></item></channel></rss>
