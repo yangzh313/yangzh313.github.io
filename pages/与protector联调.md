@@ -1,0 +1,5 @@
+- ## 环境
+- **request参数**
+- `resource_ip:"127.0.0.1"  resource_type:1  backup_id:"2275bf5e-122f-43d1-ab5c-ac0aaaa589d2"  user_name:"root"  user_password:"C+GbNRpO0dk+/FOBAKSO6A=="  target_port:3307  target_time:"1660624402"  snapshot_path:"zpool/site-207157dc-38fd-4295-9fd7-108c17b98a0d/b775c1c0-86d3-4445-9053-2b4f618c4832/0717c3ba-4ce9-40ca-9667-2ad2e2ae06a3/3306/1660540817@2275bf5e-122f-43d1-ab5c-ac0aaaa589d2"  nas:{nas_ip:"10.142.192.69"  user:"root"  password:"C+GbNRpO0dk+/FOBAKSO6A=="  url:"http://10.142.192.69/api/v2.0"  pool:"zpool"  compression:true  timeout:5}`
+-
+-

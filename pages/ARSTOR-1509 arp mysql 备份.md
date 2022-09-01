@@ -1,0 +1,5 @@
+- ## Question
+- 备份时agent创建了dataset和snapshot后crash，arp还未来得及query到，如何清理？
+- zpool/site-207157dc-38fd-4295-9fd7-108c17b98a0d/b775c1c0-86d3-4445-9053-2b4f618c4832/0717c3ba-4ce9-40ca-9667-2ad2e2ae06a3/3306/1660037125@e3b3bade-9ee0-4f73-b1f7-4e7aa1441462
+- 全备snapshot_path：<池名>/site-<siteid>/<clusterid>/<agentid>/<端口号>/<时间戳>@<backupid>
+- 增备snapshot_path：截取prev_snapshot_path @之前字段（dataset_name），拼接本次的@<backupid>
