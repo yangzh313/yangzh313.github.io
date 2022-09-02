@@ -202,7 +202,7 @@
 
  :favorites ["Dashboard" "areas" "projects" "Resources" "How to take dummy notes?"]
  :mobile/toolbar-stats {:bold {:counts 0}, :brand-youtube {:counts 0}, :checkbox {:counts 5}, :parentheses {:counts 0}, :command {:counts 1}, :calendar {:counts 9}, :paint {:counts 1}, :list {:counts 3}, :link {:counts 0}, :strikethrough {:counts 1}, :code {:counts 3}, :camera {:counts 0}, :rotate {:counts 0}, :tag {:counts 0}, :brackets {:counts 1}, :italic {:counts 0}, :a-b {:counts 0}, :rotate-clockwise {:counts 0}}
- :publishing/all-pages-public? false
+ :publishing/all-pages-public? true
 
  ;; any number between 0 and 1 (the greater it is the faster the changes of the next-interval of card reviews) (default 0.5)
  ;; :srs/learning-fraction 0.5
