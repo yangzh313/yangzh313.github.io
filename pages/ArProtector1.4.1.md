@@ -30,6 +30,8 @@ title:: ArProtector1.4.1
 - [[当下一个备份点状态异常，删除应该退出]]
 - DONE [[【Arprotector1.4】异集群注册站点同步未显示resource]]
 - [[超时任务结算]]
+- DONE 删除备份点任务资源互斥：vm_id与resource_id一致，无需修改
+-
 -
 -
 - ![b1212decb469f8b56e4663595af86bf.png](../assets/b1212decb469f8b56e4663595af86bf_1660813677532_0.png)

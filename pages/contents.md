@@ -1,2 +1,6 @@
-- ## Home
+- Hi，I'm yang!
 -
+- [[Areas]]
+- [[Resources]]
+- [[Archives]]
+	- [[Journals]]
