@@ -1,5 +1,0 @@
-- [Introduction - algorithm-pattern (gitbook.io)](https://greyireland.gitbook.io/algorithm-pattern/)
--
-- ## Array
-- [[Aug 10th, 2022]]Two-sum
--

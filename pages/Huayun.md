@@ -1,2 +1,0 @@
-- 镜像
-	- 178.105.32.76 mirrors.huayun.org 配置在/etc/hosts中，然后使用wget，下载repo到/etc/yum.repo.d/目录

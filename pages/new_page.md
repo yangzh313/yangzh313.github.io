@@ -1,3 +1,0 @@
-title:: new_page
-
--
