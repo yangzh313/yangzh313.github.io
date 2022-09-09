@@ -106,7 +106,7 @@ e. 检查 git 版本是不是安装的版本 2.12.2
 
 ```
 
-![](https://img-blog.csdnimg.cn/20190430094248652.png)
+![](https://img-blog.csdnimg.cn/20190430094248652.png){:height 92, :width 527}
 
 2. 初次运行 git 前的配置
 ================

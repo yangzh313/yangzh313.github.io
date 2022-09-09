@@ -95,6 +95,13 @@
 		  
 		  Aug 31 17:09:07 zymysql kernel: nfs: server 10.142.192.38 not responding, timed out
 		  exit
+		  
+		  test 2
+		  2022-09-06 20:18:50     INFO    common/utils.go:178     start exec rsync -avrP --bwlimit=1024 /opt/mysqlmount/mount/3307/1660714729713-d04ccd25-5cb8-4e54-ad0f-9d1d89e68e3e/full/* /mysql/mydata/3307
+		  
+		  ```
+	- timeo 3000,retrans 2-mins
+		- ```
 		  ```
 	- timeo 6000,retrans 2-31mins
 		- ```
@@ -125,6 +132,9 @@
 		  [01] xtrabackup: Error: xtrabackup_copy_datafile() failed.
 		  [01] xtrabackup: Error: failed to copy datafile.
 		  Thu Sep  1 15:30:16 CST 2022
+		  
+		  test again:
+		  
 		  
 		  ```
 	- timeo 600, retrans 1-6mins
