@@ -82,4 +82,3 @@ no_root_squash: 有 root 的权限，不建议使用
 - ## nfs v4
 - [[NFS shares are mounted as "nobody" | TrueNAS Community]]
 -
--

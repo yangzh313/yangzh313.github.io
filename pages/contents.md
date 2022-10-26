@@ -1,6 +1,8 @@
 - Hi，I'm yang!
 -
 - [[Areas]]
+- [[Projects]]
 - [[Resources]]
 - [[Archives]]
 	- [[Journals]]
+-
