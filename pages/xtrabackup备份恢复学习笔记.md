@@ -1,0 +1,49 @@
+- > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [mp.weixin.qq.com](https://mp.weixin.qq.com/s/nJvjbQ0itfRANrpufcn2GQ)
+- 之前学习了 xtrabackup 的完全备份流程和恢复流程，今天继续学习 xtrabackup 的增量备份原理，先来简单熟悉下流程吧。
+- 根据自己的理解，我将 xtrabackup 增量备份的整体流程归纳成了以下八个阶段，如下图:
+- ![](https://mmbiz.qpic.cn/mmbiz_png/cQQ09LRIXuuDQn5YuMFaZbA9BphtHwolMgeAaZRYTFZEJPOVWt8uRkAnFahbVibhrjqGMzwDLjiaOerfnGciclbWw/640?wx_fmt=png)
+- 下面对每个阶段进行细致的描述:
+- 第一步: 根据连接信息连接 MySQL
+- 与完全备份一样，连接 MySQL, 用于在后期备份过程中与数据库进行交互。
+- 第二步: 读取配置文件，读取检查起始点位置
+- 通过读取配置文件，找到 redo 日志文件的位置，读取 redo 日志，读取上次备份的 to_lsn 信息作为增量备份起始点。
+- 第三步: 基于检查点持续读取 redo 日志并复制至相应文件
+- 创建 xtrabackup_logfile，检查当前 checkpoingt 点，持续模拟 mysql instance 方式读取 redo log，复制到 xtrabackup 文件中。
+- 第四步: 基于上次备份点扫描数据页，复制有改变的页
+- LSN(log sequence number) 日志序列号，占用 8 字节，LSN 是一个一致递增的整形数字，表示事务写入到日志的字节总量。LSN 存在于重做日志和数据页头部以及 checkpoint 中，在 MySQL 中，每个 InnoDB 页面都会包含一个 LSN 号，当相关的数据发生变化时，相关页面的 LSN 号便会自动增加，这为 InnoDB 表提供增量备份提供了基础，xtrabackup 会将 LSN 信息记录到 xtrabackup_checkpoints 或 xtrabackup_info 等文件中，包含 from_lsn,to_lsn,last_lsn 等信息，from_lsn 表示备份数据开始的 LSN 号，在增量备份中，该 LSN 号与上次备份的 to_lsn 相等，to_lsn 表示备份数据结束的 LSN 号，last_lsn 表示备份结束时复制的检查点位置。在选择哪些数据页需要复制时，遵循以下原则，当 LSN 大于上一次备份的 to_lsn 数据页，则需要进行复制。用流程图表示出来，差不多就是这样子的:
+- ![](https://mmbiz.qpic.cn/mmbiz_png/cQQ09LRIXuuDQn5YuMFaZbA9BphtHwol2zcKYRbqvpfVVB00s4vqm5S95ZhHq4iceONicqH7YicL3pHVQBtqx8JnA/640?wx_fmt=png)
+- 第五步: 执行 FLUSH NO_WRITE_TO_BINLOG TABLES，FLUSH TABLES WITH READ LOCK 语句
+- 执行 FLUSH NO_WRITE_TO_BINLOG TABLES 后会关闭所有打开的表，强制关闭所有正在使用的表，并刷新查询缓存和预准备语句缓存。还会从查询缓存中删除查询结果。默认情况下 flush 语句会写入 binlog，这里使用 no_write_to_binlog 禁止记录。执行 FLUSH TABLES WITH READ LOCK 后会关闭所有被打开的表，并且使用全局锁锁住所有库的所有表，锁住之后只能进行 select 操作，不能做其他操作）。在备份或者需要数据库的一致状态时，这个是最高效的方式。
+- 第六步: 复制表文件及获取 binlog 日志点并写入相关文件
+- 复制非 Innodb 引擎表的. MYD,.MYI,.opt 等文件，InnoDB 引擎表的. frm, .opt 等文件，执行 show master status 获取 binlog 的 pos 点，写入到 xtrabackup_binlog_info 文件。
+- 第七步: 执行 FLUSH NO_WRITE_TO_BINLOG ENGINE LOG 命令，停止 redo 日志复制及解锁表
+- 执行 FLUSH NO_WRITE_TO_BINLOG ENGINE LOG 将 redo 日志持久化到磁盘，即执行刷新 redo log buffer 中的日志到磁盘中，复制最后的 redo 日志，然后执行 UNLOCK TABLES 释放全局读锁。
+- 第八步: 完成收尾工作，释放资源并退出备份进程
+- 完成资源释放及备份线程退出。
+- 完成备份了，就可以执行恢复了，增量恢复可分为以下三个步骤:
+- ![](https://mmbiz.qpic.cn/mmbiz_png/cQQ09LRIXuuDQn5YuMFaZbA9BphtHwol90PKURnB6qyv0QgibvzCSkEiavm22Q70cJC229ibco9I0sbVHB0LL3JXA/640?wx_fmt=png)
+- 详细内容如下:
+- 第一步: 对全备执行 apply-log + redo-only：
+- 1). 进入指定的备份目录，查看备份文件是否已经执行过 apply-log [prepare]
+- 如果已经执行过 apply-log，则 xtrabackup_checkpoint 文件中的 backup_type 字段值为 full-prepare
+- 如果已经执行过 apply-log + redo-only, 则该字段值为 log-applyed
+- 2). 在备份目录下读取 xtrabackup_logfile 文件，识别文件大小和起始 lsn 号。
+- 3). 读取配置参数，启动最小化的 innoDB 实例，为恢复过程做准备。
+- 4). 从起始 lsn 号往后扫描需要恢复的 redo log。
+- 5). 执行 apply-log 的过程，可以看作非正常情况关闭数据库之后重启数据库的过程，会对备份数据文件执行崩溃恢复的动作。
+- 6). 应用完 redo log 后，会执行一次正常关闭 mini innodb instance 操作，使用 innodb_fast_shutdown=1 的方式。
+- 第二步: 对增备执行 apply-log + redo-only 合并到全备中:
+- 1). 进入指定备份目录，读取增量目录中的 xtrabackup_checkpoints 文件中的 form_lsn 字段的 lsn 号。
+- 2). 查看全备目录是否已经执行过 apply-log + redo-only，即查看 xtrabackup_checkpoints 文件中 backup-type 字段是否为 log-appled.
+- 3). 在备份目录下读取 xtrabackup_logfile 文件，识别文件大小和起始 lsn 号。
+- 4). 读取配置参数，获取数据文件信息，从增量备份目录下扫描所有备份的表空间文件，ibdata1.delta,ibd.delta 文件，并将其应用到全备的对应表空间数据文件中。
+- 5). 从起始 lsn 号往后扫描需要恢复的 redo log。
+- 6). 启动最小化的 innoDB 实例，执行 apply-log 的过程，可以看作非正常情况关闭数据库之后重启数据库的过程，会对备份数据文件执行崩溃恢复的动作。
+- 7). 应用完 redo log 后，会执行一次正常关闭 mini innodb instance 操作，使用 innodb_fast_shutdown=1 的方式。
+- 8). 从增量备份目录中复制. opt，.frm 等非 innodb 引擎的相关数据和表定义等文件到全备目录下。
+- 第三步: 对全备执行 apply-log：与全备流程一致，但是此时需要将未提交的事务进行回滚。
+- 最后，关注一个小知识点吧。
+- 为什么在执行 UNLOCK TABLES 之前需要执行 FLUSH NO_WRITE_TO_BINLOG ENGINE LOGS?
+- 总体来说，该命令是为了保证数据的一致性，在执行 FLUSH TABLES WITH READ LOCK 语句后，新的数据变更将被阻塞，binlog 日志点之前的所有产生的 redo 日志都会落盘，在 xtrabackup 备份中，innobackup 不备份 binlog，在备份时如果要判断事务是前滚还是回滚，只能通过事务在 redo 日志中是否有 commit 标记来判断，如果 redo 日志中被打上了 commit 标志，则 binlog 一定已经落盘了，考虑备份数据恢复与备份源的一致性，只有一种情形可能会导致不一致，即 binlog 在主库中已经落盘，但是 redo 日志的 commit 标记还是在日志缓冲区中，这会导致 innobackupex 备份时丢失最后一个事务的 commit 标记，在做备份恢复时这个事务会被回滚，而源实例中这个事务 binlog 已经落盘，即使数据库实例挂掉，崩溃恢复时也会重新提交，因此这回导致备份恢复与源实例数据不一致，执行 FLUSH NO_WRITE_TO_BINLOG ENGINE LOGS 则可以解决这个问题，该命令可以保证获取的 pos 位置所有事物的 redo 日志都被刷新到磁盘上。
+- 好了，今天还有事，先到这吧，xtrabackup 备份这一块东西比较多，下次再一起学习吧。
+-

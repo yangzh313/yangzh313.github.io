@@ -1,0 +1,7 @@
+- 原理
+	- [[xtrabackup备份恢复学习笔记]]
+- topics
+	- [Why not rewrite xtrabackup using the new technology of Clone? - MySQL & MariaDB / Percona XtraBackup - Percona Community Forum](https://forums.percona.com/t/why-not-rewrite-xtrabackup-using-the-new-technology-of-clone/17660)
+	- [Backup/Restore Performance Conclusion: mysqldump vs MySQL Shell Utilities vs mydumper vs mysqlpump vs XtraBackup - Percona Database Performance Blog](https://www.percona.com/blog/backup-restore-performance-conclusion-mysqldump-vs-mysql-shell-utilities-vs-mydumper-vs-mysqlpump-vs-xtrabackup/)
+	-
+	-

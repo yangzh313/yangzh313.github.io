@@ -24,7 +24,10 @@
       "seed": 912330931,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -47,13 +50,18 @@
       "seed": 2057545651,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "GCC工具链",
       "baseline": 21,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "GCC工具链"
     },
     {
       "type": "rectangle",
@@ -76,7 +84,10 @@
       "seed": 1901755165,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -99,13 +110,18 @@
       "seed": 2143534451,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "GCC预处理器",
       "baseline": 21,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "GCC预处理器"
     },
     {
       "type": "rectangle",
@@ -128,7 +144,10 @@
       "seed": 1038670451,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "rectangle",
@@ -151,7 +170,10 @@
       "seed": 158784147,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "rectangle",
@@ -174,7 +196,10 @@
       "seed": 183936029,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "rectangle",
@@ -197,7 +222,10 @@
       "seed": 292532531,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -220,13 +248,18 @@
       "seed": 1106682781,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "GCC编译器",
       "baseline": 21,
       "textAlign": "left",
-      "verticalAlign": "top"
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "GCC编译器"
     },
     {
       "type": "text",
@@ -249,13 +282,18 @@
       "seed": 300420125,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "GCC汇编器",
       "baseline": 21,
       "textAlign": "left",
-      "verticalAlign": "top"
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "GCC汇编器"
     },
     {
       "type": "text",
@@ -278,13 +316,18 @@
       "seed": 1078655027,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "GCC链接器",
       "baseline": 21,
       "textAlign": "left",
-      "verticalAlign": "top"
+      "verticalAlign": "top",
+      "containerId": null,
+      "originalText": "GCC链接器"
     },
     {
       "type": "text",
@@ -307,13 +350,18 @@
       "seed": 2035839805,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "HelloWrold.c",
       "baseline": 18,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "HelloWrold.c"
     },
     {
       "type": "arrow",
@@ -336,7 +384,10 @@
       "seed": 313436179,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "oAcjynChlesuAX9lpx4Z2",
         "focus": -1.490616621983914,
@@ -382,7 +433,10 @@
       "seed": 1288417684,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "YcZGpmaGdaUuW8QgF1-rS",
         "focus": 0.9530839895013123,
@@ -424,7 +478,10 @@
       "seed": 216846124,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "fAk5FF4RLcaQpE-mVXND0",
         "focus": 0.9999999999999999,
@@ -466,7 +523,10 @@
       "seed": 1654980516,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "YcZGpmaGdaUuW8QgF1-rS",
         "focus": -0.7566943674976915,
@@ -512,7 +572,10 @@
       "seed": 2061449124,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092345,
+      "link": null,
+      "locked": false,
       "startBinding": null,
       "endBinding": {
         "elementId": "hYnytBPjJQnjgOnkcA0iC",
@@ -554,7 +617,10 @@
       "seed": 1175609636,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -577,13 +643,18 @@
       "seed": 597340956,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "HelloWrold.i",
       "baseline": 18,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "HelloWrold.i"
     },
     {
       "type": "arrow",
@@ -606,7 +677,10 @@
       "seed": 1894840228,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "yoN0dUTB0T-UHpvak1I3m",
         "focus": -0.1505050505050505,
@@ -652,7 +726,10 @@
       "seed": 316117412,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -675,13 +752,18 @@
       "seed": 1432275612,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "HelloWrold.s",
       "baseline": 18,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "HelloWrold.s"
     },
     {
       "type": "rectangle",
@@ -704,7 +786,10 @@
       "seed": 1234555036,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -727,13 +812,18 @@
       "seed": 534910756,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "HelloWrold.o",
       "baseline": 18,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "HelloWrold.o"
     },
     {
       "type": "rectangle",
@@ -756,7 +846,10 @@
       "seed": 1422716836,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -779,13 +872,18 @@
       "seed": 1584811164,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "其他库",
       "baseline": 21,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "其他库"
     },
     {
       "type": "rectangle",
@@ -808,7 +906,10 @@
       "seed": 1737665948,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": []
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false
     },
     {
       "type": "text",
@@ -831,13 +932,18 @@
       "seed": 309168676,
       "groupIds": [],
       "strokeSharpness": "sharp",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "fontSize": 20,
       "fontFamily": 1,
       "text": "HelloWrold\n可执行文件",
       "baseline": 46,
       "textAlign": "center",
-      "verticalAlign": "middle"
+      "verticalAlign": "middle",
+      "containerId": null,
+      "originalText": "HelloWrold\n可执行文件"
     },
     {
       "type": "arrow",
@@ -860,7 +966,10 @@
       "seed": 1279474716,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "ST1LW4ApYNSUMuH_mPzQP",
         "focus": -1.109644835451287,
@@ -906,7 +1015,10 @@
       "seed": 379525156,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "IAzHfVnLpygtSmIpDDB4g",
         "focus": -1.3057270396049008,
@@ -952,7 +1064,10 @@
       "seed": 113901852,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "KqzwYYzDjooew0H_k4aTt",
         "focus": -0.03829160530191459,
@@ -998,7 +1113,10 @@
       "seed": 204613788,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "a4irfgYVLHBTW-jpzy6Ol",
         "focus": 0.3595161537283724,
@@ -1044,7 +1162,10 @@
       "seed": 1010880676,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "ugs8YYm6UtG8B8_a4yDqX",
         "focus": -0.6509783183500792,
@@ -1090,7 +1211,10 @@
       "seed": 1534278044,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "5Xx78A6mTu35qLQ37qPVC",
         "focus": -1.3405214032829096,
@@ -1136,7 +1260,10 @@
       "seed": 997454756,
       "groupIds": [],
       "strokeSharpness": "round",
-      "boundElementIds": [],
+      "boundElements": [],
+      "updated": 1667284092346,
+      "link": null,
+      "locked": false,
       "startBinding": {
         "elementId": "hYnytBPjJQnjgOnkcA0iC",
         "focus": 0.025219844035175045,
