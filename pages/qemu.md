@@ -1,0 +1,2 @@
+- [KVM/QEMU/qemu-kvm/libvirt 概念全解 - 古道轻风 - 博客园 (cnblogs.com)](https://www.cnblogs.com/88223100/p/KVM_QEMU_qemu-kvm_libvirt.html)
+-

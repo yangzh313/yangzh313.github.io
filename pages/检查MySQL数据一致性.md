@@ -1,0 +1,3 @@
+- References
+	- [[Mysql] 使用mysqldiff和mysqldbcompare检查数据一致性 | zeven's blog (zeven0707.github.io)](https://zeven0707.github.io/2018/10/08/%E4%BD%BF%E7%94%A8mysqldiff%E5%92%8Cmysqldbcompare%E6%AF%94%E8%BE%83%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B7%AE%E5%BC%82/)
+-

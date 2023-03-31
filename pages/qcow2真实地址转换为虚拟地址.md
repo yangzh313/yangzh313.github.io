@@ -1,0 +1,11 @@
+- qcow2-raw
+	- 根据l1size和l1tableoffset获取l1table
+	- 遍历l1table获取所有l2offset
+	- 根据l2size和l2bits获取所有l2table
+	- 遍历l2table获取所有cluster
+	- 读取cluster
+	- 转换真实地址到并写入
+- qcow2虚拟偏移到raw偏移
+- losetup -o $((2048*512)) /dev/loop0 demo_armhf_rootfs.img
+  losetup -o $((104448 *512)) /dev/loop1 demo_armhf_rootfs.img
+-

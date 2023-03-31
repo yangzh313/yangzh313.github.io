@@ -155,7 +155,7 @@
 				- 变长列
 					- 长度不固定的数据类型：
 						- VARCHAR, VARBINARY, BLOB, TEXT
-					- 占用空间大鱼768Byte的不变长类型：
+					- 占用空间大于768Byte的不变长类型：
 						- CHAR
 					- 变长编码下（utf8）的CHAR
 				- 行溢出数据
@@ -205,3 +205,38 @@
 					- 禁止在数据库中存储图片，文件等大的二进制数据
 				- 控制B+树高度：
 					- 控制单表数据量的大小，建议控制在500万以内
+- ## 怎么查询速度更快
+	- Sakila-db: MySQL中的一个示例数据库（sample database）
+	- Where查询太慢
+		- 查询建表语句
+			- `show create table inventory;`
+		- explain
+			- `explain SELECT store_id, film_id FROM sakila.`inventory` where store_id = 1;`
+		- 总结：
+			- 覆盖索引通过取消回表操作，提升查询效率
+			- 若数据的查询不只使用了一个索引，则不是覆盖索引
+			- 可以通过优化SQL语句或优化联合索引，来使用覆盖索引
+	- 有更合适的索引不走，怎么办？
+		- 强制使用索引
+			- 可以使用force index
+		- 优化索引
+			- analyze table重新统计索引信息
+		- 总结
+			- 根据索引基数，可以判断索引性能
+	- COUNT慢怎么办？
+		- count()函数用来统计结果集不为null的个数
+			- 非索引字段：无法使用覆盖索引，最慢
+			- 索引字段：可以使用覆盖索引但依然要取出数据判空
+		- count(1)：不需要取出数据，但需要判断1是否为null
+		- count(*)用来返回数据表行数，最快，MySIAM返回行数，InnoDB返回索引树中数据的个数
+	- ORDER BY这么慢，怎么办？
+		- MySQL排序一般需要生成中间结果集、排序、回表的过程
+		- 索引覆盖是最高效的处理排序方式
+	- ORDER BY RAND()原理
+	-
+- 怎么给数据上保险？
+	- 备份
+		- mylvmbackup
+		- mydumper
+		- zmanda recovery manager
+	-

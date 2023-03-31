@@ -1,0 +1,5 @@
+- [[MySQL的reset master]]
+-
+- 参考：
+	- [(57条消息) MySQL: GTID简介，gtid_executed和gtid_purged概念_匿_名_用_户的博客-CSDN博客_gtid_purged](https://blog.csdn.net/qingsong3333/article/details/120638849)
+	-

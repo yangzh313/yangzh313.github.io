@@ -268,7 +268,7 @@ error: failed to push some refs to ‘ssh://gerrit@xx.xx.xx.xx:29418/devops_test
 **Solution:**  
 依次在项目路径下输入如下命令，即可解决：  
 gitdir=$(git rev-parse --git-dir);  
-#将 xxxxx@xxxx 替换成相应用户名、服务器即可（该命令从服务器拷贝 commit-msg 文件）  
+# 将 xxxxx@xxxx 替换成相应用户名、服务器即可（该命令从服务器拷贝 commit-msg 文件）  
 scp -p -P 29418 xxxxx@xxxx:hooks/commit-msg ${gitdir}/hooks/  
-#再提交一次即可生成 change-id  
+再提交一次即可生成 change-id  
 git commit –amend

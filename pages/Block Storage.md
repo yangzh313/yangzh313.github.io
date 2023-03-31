@@ -1,0 +1,3 @@
+- minio
+	- [MinIO 高性能对象存储 — 适用于 Linux 的 MinIO 对象存储](https://min.io/docs/minio/linux/index.html)
+-

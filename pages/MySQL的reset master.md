@@ -1,0 +1,9 @@
+- reset master：
+	- 删除index文件中的所有二进制日志文件
+	- 清空index文件
+	- 创建新的二进制日志文件
+	- 清空gtid_purged系统变量的值，也会清空系统变量gtid_executed在global上的值
+	- 5.7.7之后也会清空mysql.gtid_executed表的值
+-
+- 参考：
+	- [MySQL的reset master - abce - 博客园 (cnblogs.com)](https://www.cnblogs.com/abclife/p/9449300.html)

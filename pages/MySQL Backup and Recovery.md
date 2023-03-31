@@ -1,0 +1,6 @@
+- 优化
+	- 参考
+		- [如何把 MySQL 备份验证性能提升 10 倍 - JuiceFS 博客](https://juicefs.com/zh-cn/blog/solutions/optimize-xtrabackup-prepare-by-oplog)
+- 原理
+	- [Percona XtraBackup 全量备份过程源码解析 ｜ Yu Lan](https://yulan.work/posts/percona-xtrabackup-full-backup-sc-analysis/#%E5%A4%87%E4%BB%BD%E5%91%BD%E4%BB%A4)
+	-

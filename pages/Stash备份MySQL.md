@@ -1,0 +1,8 @@
+-
+- 参考：
+	- [Backup & Restore MySQL | Stash](https://stash.run/docs/v2022.12.11/addons/mysql/standalone/)
+	- [Backup & Restore Percona XtraDB Cluster | Stash](https://stash.run/docs/v0.9.0-rc.4/addons/percona-xtradb/guides/5.7/clustered/?_gl=1*bk5zmb*_ga*MTAwMjU1NDM4My4xNjc1ODM3Njg4*_ga_R5J3WVDEFB*MTY3NTgzNzY4Ny4xLjAuMTY3NTgzNzY4Ny42MC4wLjA.)
+	- [Percona XtraDB Backup & Restore Overview | Stash](https://stash.run/docs/v0.9.0-rc.4/addons/percona-xtradb/overview/)
+	- [MariaDB - xtrabackup-v2 SST方法 在MariaDB 10.1及以后的版本中,Mariabackup是推荐使用的方法,而不是Percona XtraBackup。 (runebook.dev)](https://runebook.dev/zh/docs/mariadb/xtrabackup-v2-sst-method/index)
+	- [Backup & Restore Hooks | Stash](https://stash.run/docs/v0.9.0-rc.4/guides/latest/hooks/backup-and-restore-hooks/?_gl=1*p9updc*_ga*MTAwMjU1NDM4My4xNjc1ODM3Njg4*_ga_R5J3WVDEFB*MTY3NTgzNzY4Ny4xLjAuMTY3NTgzNzY4Ny42MC4wLjA.)
+	-

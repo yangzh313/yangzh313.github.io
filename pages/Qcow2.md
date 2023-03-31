@@ -1,0 +1,10 @@
+- [[Qcow2和raw格式对比]]
+- [[如何读取Qcow2]]
+- [raw,qcow2虚拟磁盘挂载 - 李庆喜 - 博客园 (cnblogs.com)](https://www.cnblogs.com/lixuebin/p/10814455.html)
+- 原理
+	- [qcow2快照原理_51CTO博客_qcow2快照](https://blog.51cto.com/zybcloud/2159376)
+	- [QCOW2实现原理的一般性思考 - CodeAntenna](https://codeantenna.com/a/gnW0HJE0jP)
+	-
+- Snapshot
+	- https://kashyapc.fedorapeople.org/virt/lc-2012/snapshots-handout.html
+	-

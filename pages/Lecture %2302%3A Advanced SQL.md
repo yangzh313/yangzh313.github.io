@@ -1,0 +1,16 @@
+- Relational Languages
+	- SQL is based on bags(unordered, allow duplicates).
+- SQL History
+	- SQL is comprised of different classes of commands:
+		- Data Manipulation Language(DML): SELECT, INSERT,UPDATE, and DELETE statements.
+		- Data Definition Language(DDL): Schema definitions for tables, indexes, views, and other objects.
+		- Data Control Language(DCL): Security, access controls.
+	- SQL-92 is the minimum that a DBMS has to support to claim they support SQL.
+- Joins
+	- Combines columns from one or more tables and produces a new table.
+- Aggregates
+	- An aggregates function takes in a bag of tuples as its input and then produces a single scalar value as its output.
+- String Operations
+	- Patter Matching:
+		- "%" matches any substrings.
+		- "_" matches any one character.

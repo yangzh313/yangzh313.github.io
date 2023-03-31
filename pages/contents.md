@@ -1,8 +1,19 @@
-- Hi，I'm yang!
+- Hi，I'm Cloud Z!
 -
 - [[Areas]]
+	- [[machine learning]]
+	- [[CS]]
+		- [[OS]]
+			- [[Linux]]
+	- [[Database]]
+		- [[MySQL]]
+	- [[SoftwareEngineering]]
+	- [[Storage]]
+	- [[Virtualization]]
+	- [[Backup]]
+	- [[Writing]]
 - [[Projects]]
 - [[Resources]]
 - [[Archives]]
 	- [[Journals]]
--
+- {{renderer :tocgen2, [[contents]], calc(100vh - 622px)}}

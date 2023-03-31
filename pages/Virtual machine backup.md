@@ -1,0 +1,12 @@
+- ## References
+- ### libvirt
+	- [Incremental Backup | oVirt](https://www.ovirt.org/develop/incremental-backup-guide/incremental-backup-guide.html#high-level-design)
+	- [libvirt: Internals of incremental backup handling in qemu](https://libvirt.org/kbase/internals/incremental-backup.html)
+	- [abbbi/virtnbdbackup: Backup utility for Libvirt / qemu / kvm supporting incremental and differential backups + instant recovery. (github.com)](https://github.com/abbbi/virtnbdbackup#local-backups)
+	- [libvirt: Efficient live full disk backup](https://www.libvirt.org/kbase/live_full_disk_backup.html#id2)
+	- https://www.libvirt.org/kbase/live_full_disk_backup.html
+- ### qmp
+	- [QEMU/KVM磁盘在线备份 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/56886705)
+	- [qemu/bitmaps.rst at master · qemu/qemu (github.com)](https://github.com/qemu/qemu/blob/master/docs/interop/bitmaps.rst#incremental-backups-push-model)
+	- [Features/IncrementalBackup - QEMU](https://wiki.qemu.org/Features/IncrementalBackup#Incremental_Backups)
+-

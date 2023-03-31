@@ -1,0 +1,2 @@
+- **Archives** include “inactive items from the other three categories.”
+  Examples include: projects that have been completed or become inactive; areas that you are no longer committed to maintaining; resources that you are no longer interested in

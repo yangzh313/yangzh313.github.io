@@ -1,0 +1,1 @@
+- 当客户端退出时，ftwrl自动释放锁，而set global read_only=true不会

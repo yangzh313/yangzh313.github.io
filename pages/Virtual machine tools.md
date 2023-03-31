@@ -1,0 +1,4 @@
+- [libguestfs, library for accessing and modifying VM disk images](https://libguestfs.org/)
+- [libnbd-golang - how to use libnbd from Go (libguestfs.org)](https://libguestfs.org/libnbd-golang.3.html)
+- [virt-copy-out (libguestfs.org)](https://libguestfs.org/virt-copy-out.1.html)
+-

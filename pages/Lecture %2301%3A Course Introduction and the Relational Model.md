@@ -1,0 +1,24 @@
+title:: Lecture #01: Course Introduction and the Relational Model
+
+- Databases
+	- Organized collection of inter-related data that models some aspect of the real-world.
+	- Databases are the core component of most computer applications.
+- Database Management System
+	- A DBMS is a software that allows applications to store and analyze information in a database.
+	- A general-purpose of DBMS is designed to allow definition, creation, querying, updation, administration of databases.
+- Relation model
+	- Relation model has 3 key points:
+		- Store database in simple data structures.
+		- Access data through high-level language.
+		- Physical storage left up to（留待） implementation.
+	- A ***data model*** is a collection of concepts for describing the data in a database.
+	- A ***schema*** is a description of a particular collection of data, using a given data model.
+	- A *relation* is an unordered set that contains the relationship of attributes that represents entities.
+	- A *tuple* is a set of attribute values in the relation.
+	- Keys
+		- A relation's *primary key* uniquely identifies a single tuple.
+		- A *foreign key* specifies that an attribute from one relation has to map to a tuple in another relation.
+- References
+	- ![01-introduction.pdf](../assets/01-introduction_1671870753767_0.pdf)
+	- ![01-introduction-notes.pdf](../assets/01-introduction-notes_1671871821834_0.pdf)
+-
