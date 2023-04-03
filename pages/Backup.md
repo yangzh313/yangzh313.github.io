@@ -1,5 +1,5 @@
 - [[What Are Backup and Replication?]]
-- Prospect
+-
 - Vendor
 	- [[Technology Comparison of Mainstream Manufacturers]]
 	-
