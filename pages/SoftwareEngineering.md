@@ -1,4 +1,8 @@
 - [[Software-Engineering-at-Google]]
 - LATER [karanpratapsingh/system-design: Learn how to design systems at scale and prepare for system design interviews (github.com)](https://github.com/karanpratapsingh/system-design)
 - Reference:
-	-
+	- 《软件工程：实践者的研究方法》(Software Engineering: A Practitioner's Approach)：作者是 Roger Pressman，这本书可以帮助开发人员了解软件设计文档的组成部分以及如何编写高质量的文档。
+	- 《软件工程导论》(Introduction to Software Engineering)：作者是 Ronald J. Leach，这本书中讨论了软件设计文档的目的、组成部分和编写流程，可以帮助开发人员更好地理解软件设计文档的重要性。
+	- 《UML用户指南》(The User Guide to the Unified Modeling Language)：作者是 Grady Booch、James Rumbaugh 和 Ivar Jacobson，这本书详细介绍了UML语言，包括如何使用UML来设计和描述软件系统的结构和行为。
+	- 《如何写好设计文档》(How to Write a Good Software Design Document)：这是一篇 Medium 上的文章，作者是 Shawn Rakowski，这篇文章介绍了如何编写一个有效的软件设计文档，包括文档组成部分、文档的结构和风格等方面。
+	- 《如何编写可维护的代码》(How to Write Maintainable Code)：这是一篇博客文章，作者是 Christian Maioli Mackeprang，文章提供了一些关于如何编写易于维护的代码的指导建议，包括如何编写注释和文档，如何设计清晰的函数和类等方面。
