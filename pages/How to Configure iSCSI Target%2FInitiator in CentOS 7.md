@@ -136,8 +136,7 @@
 		  ```
 - 配置iSCSI Initiator
 	- 安装和发现target
-		- ```
-		  [root@node1 ~]# yum install -y iscsi-initiator-utils
+		- [root@node1 ~]# yum install -y iscsi-initiator-utils
 		  Package iscsi-initiator-utils-6.2.0.874-22.el7_9.x86_64 already installed and latest version
 		  Nothing to do
 		  [root@node1 ~]# systemctl enable iscsi ; systemctl start iscsi
@@ -162,7 +161,6 @@
 		  └─vdc1          252:33   0  100G  0 part
 		  loop0             7:0    0  114M  1 loop /var/lib/snapd/snap/core/13425
 		  loop1             7:1    0  9.8M  1 loop /var/lib/snapd/snap/throttle/1
-		  ```
 	- 对/dev/sda创建分区和文件系统
 		- [root@node1 ~]# fdisk /dev/sda
 		  Welcome to fdisk (util-linux 2.23.2).
