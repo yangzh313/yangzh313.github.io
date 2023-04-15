@@ -1,5 +1,4 @@
-- ```
-  package main
+- package main
   
   import (
       "bufio"
@@ -68,8 +67,6 @@
   
       fmt.Println(output)
   }
-  
-  ```
 - In this updated implementation, we use a `bytes.Buffer` to collect the filtered output lines into a single string. We only add the filtered line to the buffer if it is not an empty string, to avoid adding unnecessary newlines to the output.
 - The `Execute` function now returns the filtered output as a string, along with any error that occurred while running the command or filtering the output.
 - In the example usage shown in the `main` function, we call the `Execute` function with the command to run and the filter function as arguments, and store the filtered output in a variable named `output`. We then print the filtered output to the console.
