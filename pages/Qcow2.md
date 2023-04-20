@@ -8,6 +8,3 @@
 	-
 - Snapshot
 	- https://kashyapc.fedorapeople.org/virt/lc-2012/snapshots-handout.html
-- test
-	- [[Qcow2测试删除文件对于map的变化]]
-	-
