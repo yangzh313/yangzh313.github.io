@@ -1,6 +1,5 @@
 -
 - [[Qcow2和raw格式对比]]
-	-
 - [[如何读取Qcow2]]
 - [raw,qcow2虚拟磁盘挂载 - 李庆喜 - 博客园 (cnblogs.com)](https://www.cnblogs.com/lixuebin/p/10814455.html)
 - 原理
@@ -9,4 +8,6 @@
 	-
 - Snapshot
 	- https://kashyapc.fedorapeople.org/virt/lc-2012/snapshots-handout.html
+- test
+	- [[Qcow2测试删除文件对于map的变化]]
 	-
