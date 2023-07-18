@@ -39,8 +39,6 @@
 	  |O*..    .o.      |
 	  +----[SHA256]-----+
 	  yangzh22@HY03-WX01-1350:~/projects/ar-dbagent-1.5-dev$
-	  yangzh22@HY03-WX01-1350:~/projects/ar-dbagent-1.5-dev$ ssh-add
-	  Could not open a connection to your authentication agent.
 	  yangzh22@HY03-WX01-1350:~/projects/ar-dbagent-1.5-dev$ ssh-agent bash
 	  yangzh22@HY03-WX01-1350:~/projects/ar-dbagent-1.5-dev$ ssh-add
 	  Identity added: /home/yangzh22/.ssh/id_rsa (/home/yangzh22/.ssh/id_rsa)
