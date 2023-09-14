@@ -2,11 +2,8 @@
 -
 - [[Areas]]
 	- [[machine learning]]
-	- [[CS]]
-		- [[OS]]
-			- [[Linux]]
+	- [[Linux]]
 	- [[Database]]
-		- [[MySQL]]
 	- [[SoftwareEngineering]]
 	- [[Storage]]
 	- [[Virtualization]]
@@ -15,6 +12,7 @@
 	- [[Code]]
 - [[Projects]]
 - [[Resources]]
+	- [[Tools]]
 - [[Archives]]
 	- [[Journals]]
-- {{renderer :tocgen2, [[contents]], calc(100vh - 622px)}}
+-

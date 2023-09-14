@@ -1,3 +1,5 @@
 - Development
 	- [[wsl]]
-	-
+- NoteTaking
+	- [[logseq]]
+	- [[notion]]
