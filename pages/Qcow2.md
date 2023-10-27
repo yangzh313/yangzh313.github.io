@@ -5,6 +5,9 @@
 - 原理
 	- [qcow2快照原理_51CTO博客_qcow2快照](https://blog.51cto.com/zybcloud/2159376)
 	- [QCOW2实现原理的一般性思考 - CodeAntenna](https://codeantenna.com/a/gnW0HJE0jP)
-	-
 - Snapshot
 	- https://kashyapc.fedorapeople.org/virt/lc-2012/snapshots-handout.html
+- Performance
+	- [events.static.linuxfound.org/sites/events/files/slides/kvm-forum-2017-slides.pdf](https://events.static.linuxfound.org/sites/events/files/slides/kvm-forum-2017-slides.pdf)
+	- [How to Tune QEMU L2 Cache Size and QCOW2 Cluster Size - IBM Blog](https://www.ibm.com/blog/how-to-tune-qemu-l2-cache-size-and-qcow2-cluster-size/)
+	-

@@ -1,6 +1,7 @@
 - Introduction
 	- [[What Are Backup and Replication?]]
 	- [[Prospect of data backup]]
+	- [[数据备份、复制和迁移的区别]]
 - Vendor
 	- [[Technology Comparison of Mainstream Manufacturers]]
 	-

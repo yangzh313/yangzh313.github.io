@@ -69,7 +69,7 @@ b. 解压 git-2.12.2.tar.gz
 
 ```
 
-#c. 配置 git 安装路径:
+# c. 配置 git 安装路径:
 
 ```
 #	cd /usr/local/git-2.12.2
@@ -77,7 +77,7 @@ b. 解压 git-2.12.2.tar.gz
 
 ```
 
-#d. 编绎并且安装
+# d. 编绎并且安装
 
 make && make install
 ====================
@@ -267,8 +267,9 @@ error: failed to push some refs to ‘ssh://gerrit@xx.xx.xx.xx:29418/devops_test
 
 **Solution:**  
 依次在项目路径下输入如下命令，即可解决：  
-gitdir=$(git rev-parse --git-dir);  
-# 将 xxxxx@xxxx 替换成相应用户名、服务器即可（该命令从服务器拷贝 commit-msg 文件）  
-scp -p -P 29418 xxxxx@xxxx:hooks/commit-msg ${gitdir}/hooks/  
-再提交一次即可生成 change-id  
-git commit –amend
+gitdir=$(git rev-parse --git-dir);
+
+- # 将 xxxxx@xxxx 替换成相应用户名、服务器即可（该命令从服务器拷贝 commit-msg 文件）  
+  scp -p -P 29418 xxxxx@xxxx:hooks/commit-msg ${gitdir}/hooks/  
+  再提交一次即可生成 change-id  
+  git commit –amend

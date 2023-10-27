@@ -1,3 +1,5 @@
 - 备份
 	- [darobin/notion-backup: Simple command to backup a Notion workspace (github.com)](https://github.com/darobin/notion-backup)
--
+- 同步
+	- [解决PC iCloud同步失败问题 附安装包 iCloud for Windows_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1uC4y1f78H/?spm_id_from=333.337.search-card.all.click)
+	-

@@ -74,10 +74,10 @@
   root@chantyou:nfs_client_root# sudo touch test_client_write.txt
   
   就是权限的问题。
-### 方法二
-
-加了 no_root_squash，也可以解决问题。  
-no_root_squash: 有 root 的权限，不建议使用
+- ### 方法二
+  
+  加了 no_root_squash，也可以解决问题。  
+  no_root_squash: 有 root 的权限，不建议使用
 -
 - ## nfs v4
 - [[NFS shares are mounted as "nobody" | TrueNAS Community]]

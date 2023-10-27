@@ -1,0 +1,7 @@
+- 也被称为s3的worm（write once read many）特性，目的是确保object在设定的时间内永远不会被删除或覆盖。
+- s3 object lock提供了两种模式：
+	- Retention period：对象保存一定的时间，这段时间对象不允许被删除或覆盖。
+	- Legal hold：与Retention period类似，只是没有固定保存时间。
+- 参考：
+	- [对象存储介绍之：S3 WORM - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/575880139)
+	- [一文读懂 AWS S3 | Thinking in Crowd / 鹄思乱想](http://www.thinkingincrowd.me/2020/03/10/aws-s3/)
