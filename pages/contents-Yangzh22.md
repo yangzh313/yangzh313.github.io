@@ -6,7 +6,7 @@
 	- [[Database]]
 	- [[SoftwareEngineering]]
 	- [[Storage]]
-	- [[Cloud]]
+	- [[Virtualization]]
 	- [[DataBackup]]
 	- [[Writing]]
 	- [[Code]]

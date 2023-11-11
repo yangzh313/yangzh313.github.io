@@ -1,0 +1,4 @@
+- [[MAPALL & MAPROOT]] #nfs #truenas
+- nfs 挂载 [[Permission denied]] #nfs #truenas
+- [[dataset sync选项]]
+-

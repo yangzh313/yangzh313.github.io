@@ -200,7 +200,7 @@
 
  :ref/linked-references-collapsed-threshold 50
 
- :favorites ["Contents" "Dashboard" "areas" "projects" "Resources"]
+ :favorites ["如何写一份高可读性的软件工程设计文档" "Contents" "Dashboard" "areas" "projects" "Resources"]
  :mobile/toolbar-stats {:bold {:counts 0}, :brand-youtube {:counts 0}, :checkbox {:counts 5}, :parentheses {:counts 0}, :command {:counts 1}, :calendar {:counts 9}, :paint {:counts 1}, :list {:counts 3}, :link {:counts 0}, :strikethrough {:counts 1}, :code {:counts 3}, :camera {:counts 0}, :rotate {:counts 0}, :tag {:counts 0}, :brackets {:counts 1}, :italic {:counts 0}, :a-b {:counts 0}, :rotate-clockwise {:counts 0}}
  :publishing/all-pages-public? true
  :feature/enable-journals? true

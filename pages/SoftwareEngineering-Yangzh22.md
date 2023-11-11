@@ -1,7 +1,9 @@
 - [[Software-Engineering-at-Google]]
 - LATER [karanpratapsingh/system-design: Learn how to design systems at scale and prepare for system design interviews (github.com)](https://github.com/karanpratapsingh/system-design)
 - Reference:
+	- [[软件设计文档的编写可以参考哪些书籍或文章]]
 	- [[一份虚拟机备份功能的设计文档应该包含以下内容（chatgpt）]]
 	- [[charliesbot/design-docs/example.md]]
 	- [[如何写一份高可读性的软件工程设计文档]]
+- [[图表]]
 -

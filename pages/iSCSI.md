@@ -1,2 +1,5 @@
--
+- [SCSI - Wikipedia](https://en.wikipedia.org/wiki/SCSI)
+- [iSCSI - Wikipedia](https://en.wikipedia.org/wiki/ISCSI)
+- [iSCSI的基本架构及操作简介 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/60986068)
 - [[How to Configure iSCSI Target/Initiator in CentOS 7]]
+-

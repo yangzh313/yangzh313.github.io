@@ -1,0 +1,4 @@
+- config
+	- [如何在 Debian 11 系统上设置静态IP地址 ? - 个人文章 - SegmentFault 思否](https://segmentfault.com/a/1190000043209392)
+-
+-

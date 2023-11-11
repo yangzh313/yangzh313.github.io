@@ -8,4 +8,5 @@ alias:存储
 	- [[ussvd]]
 	- [[thin provision]]
 	- [[iSCSI]]
+		- [iSCSI的基本架构及操作简介 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/60986068)
 	- [[S3]]
