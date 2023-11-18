@@ -10,6 +10,7 @@
 	- [[DataBackup]]
 	- [[Writing]]
 	- [[Code]]
+	- [[Reading]]
 - [[Projects]]
 - [[Resources]]
 	- [[Tools]]
