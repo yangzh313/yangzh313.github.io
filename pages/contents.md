@@ -16,4 +16,3 @@
 	- [[Tools]]
 - [[Archives]]
 	- [[Journals]]
-- {{renderer :tocgen2, [[数据保护：工作负载的可恢复性]], calc(100vh - 135px)}}
