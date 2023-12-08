@@ -1,4 +1,5 @@
 - 安装
 	- [pve8资源下载 | pvewiki](https://www.pvewiki.com/zh/home/pve/pve8%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD)
 	- [PVE 安装 OpenWRT（基于PVE 8.0） - Redoc's Space](https://www.redoc.top/article/1173-PVE%20%E5%AE%89%E8%A3%85%20OpenWRT%EF%BC%88%E5%9F%BA%E4%BA%8EPVE%208.0%EF%BC%89)
+	- [[pve下部署openstack]]
 	-
