@@ -1,1 +1,3 @@
 - [[mlflow]]
+- [Evidently AI - ML system design: 300 case studies](https://www.evidentlyai.com/ml-system-design?continueFlag=fca543d397fed3ebe1d0fbec6e695b75)
+-
