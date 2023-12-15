@@ -3,4 +3,6 @@
 	- [PVE 安装 OpenWRT（基于PVE 8.0） - Redoc's Space](https://www.redoc.top/article/1173-PVE%20%E5%AE%89%E8%A3%85%20OpenWRT%EF%BC%88%E5%9F%BA%E4%BA%8EPVE%208.0%EF%BC%89)
 	- [[pve下部署openstack]]
 	- [Proxmox VE 中文手册 v7.3 — Promxox VE 中文文档 7.1 文档 (pve-doc-cn.readthedocs.io)](https://pve-doc-cn.readthedocs.io/zh-cn/latest/index.html)
--
+	- [自组 AIO PVE+TrueNas 配置记录 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/642645634)
+	- [佛西博客 - Proxmox VE pve硬盘直通 (buduanwang.vip)](https://foxi.buduanwang.vip/virtualization/1754.html/)
+	-
