@@ -1,2 +1,33 @@
 - [handleImport.xmind](../assets/handleImport_1702977394285_0.xmind)
 -
+- handleImport
+	- newDataSource
+	- newDataProcessor
+		- &DataProcessor
+			- currentPhase
+			- source
+			- dataFile
+			- requestImageSize
+			- phaseExecutors map[ProcessingPhase]func()
+				- Info
+				- Transfer
+				- ValidatePause
+				- Convert
+				- Resize
+				- Complete
+				- Pause
+				- common.GenericError
+				- MergeDelta
+		- dp.initDefaultPhases
+		- dp.RegisterPhaseExecutor
+			- ProcessingPhaseTransferDataFile
+				- VDDKDataSource.TransferFile
+					- pre-checks
+					- newVddkDataSink
+						- defer sink.Close()
+					- updataProcegress func
+					- range changed area
+						- CopyRange
+							- libnbd handle.Pread
+							- sink.Pwrite
+							- async processData
