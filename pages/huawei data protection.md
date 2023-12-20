@@ -3,3 +3,11 @@
 - 防勒索
 - ![image.png](../assets/image_1703037929652_0.png)
 - 数据备份意识薄弱，存在隐患
+- ![image.png](../assets/image_1703038093241_0.png)
+- 上层应用非常复杂
+- ![image.png](../assets/image_1703038229881_0.png)
+- ![image.png](../assets/image_1703038333823_0.png)
+- 全闪分布式备份一体机
+- ![image.png](../assets/image_1703038500599_0.png)
+- ![image.png](../assets/image_1703038557021_0.png)
+-
