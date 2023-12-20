@@ -1,4 +1,5 @@
 - 数据保护
 - ![image.png](../assets/image_1703037790077_0.png)
--
+- 防勒索
+- ![image.png](../assets/image_1703037929652_0.png)
 -
