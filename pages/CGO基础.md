@@ -1,1 +1,3 @@
 - 要使用CGO，需要安装C/C++构建工具链，在linux安装GCC，在windows则是MinGW。需要保证go环境变量CGO_ENABLED=1，默认开启。
+- ### import "C"语句
+	- Go代码中出现import "C"语句则表示使用了CGO特性，紧跟在这行语句前面的注释是一种特殊。
