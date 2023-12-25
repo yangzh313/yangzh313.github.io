@@ -1,1 +1,1 @@
-- 要使用CGO，需要安装C/C
+- 要使用CGO，需要安装C/C++构建工具链，在linux安装GCC，在windows则是MinGW。需要保证go环境变量CGO_ENABLED=1，默认开启。
