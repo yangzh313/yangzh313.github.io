@@ -105,7 +105,6 @@
   
   ```
   create index name_age_index on user(name,age);
-  
   ```
   
   ![](https://img-blog.csdnimg.cn/cc6ac014998b4c63967c2bb78433435e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
@@ -306,208 +305,208 @@
   **主键 ID 列索引：**  
   ![](https://img-blog.csdnimg.cn/e91e5091172346568d93c9bc3814e5f9.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
   表 user 的索引存储在索引文件`user.MYI`中，数据存储在数据文件`user.MYD`中。
-### 3.1.1、根据主键等值查询数据
-
-```
-select * from user where id = 28
-
-```
-
-1.  第一次磁盘 IO：先在主键索引树中从根节点开始检索，将根节点加载到内存中，比较 28<75，所以走左子树。
-2.  第二次磁盘 IO：将左子树节点加载到内存中，比较 16<28<47，向下检索。
-3.  第三次磁盘 IO：检索到叶子节点，将节点加载到内存中遍历，从 16<28，18<28，28=28，查找到键值等于 28 的索引项。
-4.  第四次磁盘 IO：从索引项中获取磁盘地址，然后到数据文件`user.MYD`中获取对应整行记录。
-5.  将记录返回给客户端。
-
-**磁盘 IO 次数：3 次索引检索 + 1 次记录数据检索：**  
-![](https://img-blog.csdnimg.cn/7c1104d6f12845478fbb7e8cdf9de622.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
-### 3.1.1、根据主键范围查询数据
-
-```
-select * from user where id between 28 and 47;
-
-```
-
-1.  第一次磁盘 IO：先在主键索引树中从根节点开始检索，将根节点加载到内存中，比较 28<75，所以走左子树。
-2.  第二次磁盘 IO：将左子树节点加载到内存中，比较 16<28<47，向下检索。
-3.  第三次磁盘 IO：检索到叶子节点，将节点加载到内存中遍历，从 16<28，18<28，28=28，查找到键值等于 28 的索引项，根据次磁盘地址从数据文件中获取行记录缓存到结果集中。
-4.  第四次磁盘 IO：我们在查询时时根据范围查找，将下一个节点加载到内存中，遍历比较，28<47=47，根据磁盘地址从数据文件中获取地址缓存到结果集中。
-5.  根据上图可知，最后得到两条符合筛选条件的结果集，将结果返回给客户端。
-
-**磁盘 IO 次数：4 次索引检索 + 1 次记录数据检索。**  
-![](https://img-blog.csdnimg.cn/6e6567bdd8e34a77b5d4d246b9a6c054.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
-
-*   提示：
+- ### 3.1.1、根据主键等值查询数据
+  
+  ```
+  select * from user where id = 28
+  
+  ```
+  
+  1.  第一次磁盘 IO：先在主键索引树中从根节点开始检索，将根节点加载到内存中，比较 28<75，所以走左子树。
+  2.  第二次磁盘 IO：将左子树节点加载到内存中，比较 16<28<47，向下检索。
+  3.  第三次磁盘 IO：检索到叶子节点，将节点加载到内存中遍历，从 16<28，18<28，28=28，查找到键值等于 28 的索引项。
+  4.  第四次磁盘 IO：从索引项中获取磁盘地址，然后到数据文件`user.MYD`中获取对应整行记录。
+  5.  将记录返回给客户端。
+  
+  **磁盘 IO 次数：3 次索引检索 + 1 次记录数据检索：**  
+  ![](https://img-blog.csdnimg.cn/7c1104d6f12845478fbb7e8cdf9de622.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
+- ### 3.1.1、根据主键范围查询数据
+  
+  ```
+  select * from user where id between 28 and 47;
+  
+  ```
+  
+  1.  第一次磁盘 IO：先在主键索引树中从根节点开始检索，将根节点加载到内存中，比较 28<75，所以走左子树。
+  2.  第二次磁盘 IO：将左子树节点加载到内存中，比较 16<28<47，向下检索。
+  3.  第三次磁盘 IO：检索到叶子节点，将节点加载到内存中遍历，从 16<28，18<28，28=28，查找到键值等于 28 的索引项，根据次磁盘地址从数据文件中获取行记录缓存到结果集中。
+  4.  第四次磁盘 IO：我们在查询时时根据范围查找，将下一个节点加载到内存中，遍历比较，28<47=47，根据磁盘地址从数据文件中获取地址缓存到结果集中。
+  5.  根据上图可知，最后得到两条符合筛选条件的结果集，将结果返回给客户端。
+  
+  **磁盘 IO 次数：4 次索引检索 + 1 次记录数据检索。**  
+  ![](https://img-blog.csdnimg.cn/6e6567bdd8e34a77b5d4d246b9a6c054.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
+  
+  *   提示：
   
   > 以上分析仅供参考，如果使用 MyISAM 存储引擎在查询时，会将索引节点缓存在 MySQL 缓存中，**而数据缓存依赖于操作系统自身的缓存，** 这里只是为了演示分析索引的使用过程。
-### 3.1.3、辅助索引
-
-*   在 MyISAM 存储引擎中，辅助索引和主键索引的结构是一样的，没有任何区别，叶子节点中 data 阈存储的都是行记录的磁盘地址。
-*   主键列索引的键值是唯一的，而辅助索引的键值是可以重复的。
-*   查询数据时，由于辅助索引的键值不唯一，可能存在多个拥有相同的记录，所以即使是等值查询，也需要按照范围查询的方式在辅助索引树种检索数据。
-
-3.2、InnoDB 存储引擎索引
------------------
-### 3.2.1、主键索引（聚簇索引）
-
-每个 InnoDB 表都有一个聚簇索引，聚簇索引使用 B + 树构建，叶子节点的 data 阈存储的是整行记录。一般情况下，聚簇索引等同于主键索引，当一个表没有创建主键索引时，InnoDB 会自动创建一个 ROWID 字段来构建聚簇索引。InnoDB 创建索引的具体规则如下：
-
-*   在创建表时，定义主键 PRIMARY KEY，InnoDB 会自动将主键索引用作聚簇索引。
-*   如果表没有定义主键，InnoDB 会选择第一个不为 NULL 的唯一索引列用作聚簇索引。
-*   如果以上两个都没有，InnoDB 会自动使用一个长度为 6 字节的 ROWID 字段来构建聚簇索引，该 ROWID 字段会在插入新的行记录时自动递增。
-
-除聚簇索引之外的所有索引都被称为辅助索引。在 InnoDB 中，辅助索引中的叶子节点键值存储的是该行的主键值。在检索时，InnoDB 使用此主键在聚餐索引中搜索行记录。
-
-这里以 user_innodb 表为例，user_innodb 的 id 列为主键，age 列为普通索引。
-
-```
-CREATE TABLE `user_innodb`
-(
-`id`       int(11) NOT NULL AUTO_INCREMENT,
-`username` varchar(20) DEFAULT NULL,
-`age`      int(11)     DEFAULT NULL,
-PRIMARY KEY (`id`) USING BTREE,
-KEY `idx_age` (`age`) USING BTREE
-) ENGINE = InnoDB;
-
-```
-
-*   InnoDB 的数据和索引存储在`t_user_innodb.ibd`文件中，InnoDB 的数据组织方式，是聚簇索引。
-*   主键索引的叶子节点会存储数据行，辅助索引的叶子节点只会存储主键值。
-
-![](https://img-blog.csdnimg.cn/29a27130b5a843b59c5c560cd5c731b2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
-**等值查询数据：**
-
-```
-select * from user_innodb where id = 28;
-
-```
-
-**发生三次磁盘 IO：**  
-![](https://img-blog.csdnimg.cn/43285bda9e754299bc0a614282bdd4a6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
-### 3.2.2、辅助索引
-
-*   除聚簇索引之外的所有索引都被称为辅助索引，InnoDB 的辅助索引只会存储值而不存储磁盘地址。
-*   以 user_innodb 的 age 列为例，age 列的辅助索引结构如下图：
-
-![](https://img-blog.csdnimg.cn/23bdd860117243ff909bcff49b6b1e09.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
-
-*   辅助索引的底层叶子节点是按照（age，id）的顺序排序，先按照 age 列从小到大排序，age 相同时按照 id 列从小到大排序。
-*   使用辅助索引需要检索两遍索引：首先检索辅助索引获得主键，然后根据主键到主键索引中检索获得数据记录。
-
-**辅助索引等值查询的情况：**
-
-```
-select * from t_user_innodb where age=19;
-
-```
-
-![](https://img-blog.csdnimg.cn/175b62fdfe7c48d6a017e3506272f953.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
-**在辅助索引树中获取到主键 id，再根据主键 id 到主键索引数中检索数据的的过程称为`回表查询`。**
-
-**磁盘 IO 数（从根节点开始）：辅助索引 3 次 + 回表过程 3 次。**
-### 3.2.3、组合索引
-
-*   以表 abc_innodb 为例，id 列为主键索引，创建一个联合索引`idx_abc(a，b，c)`。
-
-```
-CREATE TABLE `abc_innodb`
-(
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`a`  int(11)     DEFAULT NULL,
-`b`  int(11)     DEFAULT NULL,
-`c`  varchar(10) DEFAULT NULL,
-`d`  varchar(10) DEFAULT NULL,
-PRIMARY KEY (`id`) USING BTREE,
-KEY `idx_abc` (`a`, `b`, `c`)
-) ENGINE = InnoDB;
-
-```
-
-**组合索引的数据结构：**  
-![](https://img-blog.csdnimg.cn/1c72e1da60724e9d9f9a73e6ab625079.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
-**组合索引的查询过程：**
-
-```
-select * from abc_innodb where a = 13 and b = 16 and c = 4;
-
-```
-
-![](https://img-blog.csdnimg.cn/d7c8ff7d92b347738c3adceba17d8dee.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
-### 3.2.4、最左匹配原则
-
-最左前缀匹配原则和联合索引的`索引存储结构和检索方式`是有关系的。
-
-在组合索引树中，最底层的叶子节点按照第一列 a 列从左到右递增排序，但是 b 列和 c 列是无序的，b 列只有在 a 列值相等的情况下小范围内有序递增；而 clie 只能在 a 和 b 两列值相等的情况下小范围内有序递增。
-
-就像上面的查询，B+ 树会先比较 a 列来确定下一步应该检索的方向，往左还是往右。如果 a 列相同再比较 b 列，但是如果查询条件中没有 a 列，B + 树就不知道第一步应该从那个节点开始查起。
-
-可以说创建的 idx_(a，b，c)索引，相当于创建了 (a)、(a，b)、(a，b，c) 三个索引。
-
-**组合索引的最左前缀匹配原则：**
-
-> 使用组合索引查询时，mysql 会一直向右匹配直至遇到范围查询 (>、<、between、like) 等就会停止匹配。
-### 3.2.5、覆盖索引
-
-> **== 覆盖索引并不是一种索引结构，覆盖索引是一种很常用的优化手段 ==。因为在使用辅助索引的时候，我们只可以拿到相应的主键值，想要获取最终的数据记录，还需要根据主键通过主键索引再去检索，最终获取到符合条件的数据记录。**
-> 
-> **在上面的 abc_innodb 表中的组合索引查询时，如果我们查询的结果只需要 a、b、c 这三个字段，那我们使用这个 idx_index(a，b，c) 组合索引查询到叶子节点时就可以直接返回了，而不需要再次回表查询，这种情况就是 == 覆盖索引 ==。**
-
-4.1、回表查询
---------
-
-在 InnoDB 的存储引擎中，使用辅助索引查询的时候，因为辅助索引叶子节点保存的数据不是当前数据记录，而是当前数据记录的主键索引。如果需要获取当前记录完整的数据，就必须要再次根据主键从主键索引中继续检索查询，这个过程我们称之为**回表查询**。
-
-由此可见，在数据量比较大的时候，回表必然会消耗很多的时间影响性能，所以我们要尽量避免回表的发生。
-
-4.2、如何避免回表
-----------
-
-使用覆盖索引，举个例子：现有 User 表
-
-```
-CREATE TABLE `user`
-(
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`name`  int(11)     DEFAULT NULL,
-`sex`  char(3)     DEFAULT NULL,
-`address`  varchar(10) DEFAULT NULL,
-`hobby`  varchar(10) DEFAULT NULL,
-PRIMARY KEY (`id`) USING BTREE,
-KEY `i_name` (`name`)
-) ENGINE = InnoDB;
-
-```
-
-如果有一个场景:
-
-```
-select id,name,sex from user where name = 'zhangsan';
-
-```
-
-这个语句在业务上频繁使用到，而 user 表中的其他字段使用频率远低于这几个字段，在这个情况下，如果我们在建立 name 字段的索引时，不是使用单一索引，而是使用`联合索引（name，sex）`，这样的话再执行这个查询语句，根据这个辅助索引`（name，sex）`查询到的结果就包括了我们所需要的查询结果的所有字段的完整数据，这样就不需要再次回表查询去检索 sex 字段的数据了。
-
-> **以上就是一个典型的使用覆盖索引的优化策略减少了回表查询的情况。**
-
-4.3、联合索引的使用
------------
-
-**联合索引：**
-
-> 在建立索引的时候，尽量在多个单列索引上判断是否可以使用联合索引。联合索引的使用不仅可以节省空间，还可以更容易的使用到覆盖索引。
-
-**节省空间：**
-
-> 试想一下，索引的字段越多，是不是更容易满足查询需要返回的数据呢？比如联合索引`（a，b，c）`是不是等于有了：`a`、`（a，b）`、`（a，b，c）`三个索引，这样是不是节省了空间，当然节省的空间并不是三倍于`a`、`（a，b）`、`（a，b，c）`三个索引所占用的空间，但是联合索引中 data 字段数据所占用的空间确实节省了不少。
-
-**联合索引的创建原则：**
-
-> 在创建联合索引的时候应该把频繁使用的列、区分度高的列放在前面，频繁使用代表索引利用率高，区分度高代表筛选力度大，这些都是在创建索引的时候需要考虑到的优化场景，也可以将常需要作为查询返回的字段增加到联合索引中。
-> 
-> **如果在联合索引上增加了一个字段，而恰好满足了使用覆盖索引的情况，这种情况建议使用联合索引。**
-
-**联合索引的使用：**
-
-*   考虑到当前是否已经存在多个可以合并的单列索引，如果有，那么推荐将当前的多个单列索引创建为一个联合索引。
-*   当前索引存在频繁使用，在结果中有一个列也被频繁查询，而这个列不在当前频繁使用的索引中，那么这个时候就可以考虑这个列是否可以加入到当前频繁使用的索引中，使其查询语句可以使用到覆盖索引。
+- ### 3.1.3、辅助索引
+  
+  *   在 MyISAM 存储引擎中，辅助索引和主键索引的结构是一样的，没有任何区别，叶子节点中 data 阈存储的都是行记录的磁盘地址。
+  *   主键列索引的键值是唯一的，而辅助索引的键值是可以重复的。
+  *   查询数据时，由于辅助索引的键值不唯一，可能存在多个拥有相同的记录，所以即使是等值查询，也需要按照范围查询的方式在辅助索引树种检索数据。
+  
+  3.2、InnoDB 存储引擎索引
+  -----------------
+- ### 3.2.1、主键索引（聚簇索引）
+  
+  每个 InnoDB 表都有一个聚簇索引，聚簇索引使用 B + 树构建，叶子节点的 data 阈存储的是整行记录。一般情况下，聚簇索引等同于主键索引，当一个表没有创建主键索引时，InnoDB 会自动创建一个 ROWID 字段来构建聚簇索引。InnoDB 创建索引的具体规则如下：
+  
+  *   在创建表时，定义主键 PRIMARY KEY，InnoDB 会自动将主键索引用作聚簇索引。
+  *   如果表没有定义主键，InnoDB 会选择第一个不为 NULL 的唯一索引列用作聚簇索引。
+  *   如果以上两个都没有，InnoDB 会自动使用一个长度为 6 字节的 ROWID 字段来构建聚簇索引，该 ROWID 字段会在插入新的行记录时自动递增。
+  
+  除聚簇索引之外的所有索引都被称为辅助索引。在 InnoDB 中，辅助索引中的叶子节点键值存储的是该行的主键值。在检索时，InnoDB 使用此主键在聚餐索引中搜索行记录。
+  
+  这里以 user_innodb 表为例，user_innodb 的 id 列为主键，age 列为普通索引。
+  
+  ```
+  CREATE TABLE `user_innodb`
+  (
+  `id`       int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) DEFAULT NULL,
+  `age`      int(11)     DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_age` (`age`) USING BTREE
+  ) ENGINE = InnoDB;
+  
+  ```
+  
+  *   InnoDB 的数据和索引存储在`t_user_innodb.ibd`文件中，InnoDB 的数据组织方式，是聚簇索引。
+  *   主键索引的叶子节点会存储数据行，辅助索引的叶子节点只会存储主键值。
+  
+  ![](https://img-blog.csdnimg.cn/29a27130b5a843b59c5c560cd5c731b2.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
+  **等值查询数据：**
+  
+  ```
+  select * from user_innodb where id = 28;
+  
+  ```
+  
+  **发生三次磁盘 IO：**  
+  ![](https://img-blog.csdnimg.cn/43285bda9e754299bc0a614282bdd4a6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
+- ### 3.2.2、辅助索引
+  
+  *   除聚簇索引之外的所有索引都被称为辅助索引，InnoDB 的辅助索引只会存储值而不存储磁盘地址。
+  *   以 user_innodb 的 age 列为例，age 列的辅助索引结构如下图：
+  
+  ![](https://img-blog.csdnimg.cn/23bdd860117243ff909bcff49b6b1e09.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
+  
+  *   辅助索引的底层叶子节点是按照（age，id）的顺序排序，先按照 age 列从小到大排序，age 相同时按照 id 列从小到大排序。
+  *   使用辅助索引需要检索两遍索引：首先检索辅助索引获得主键，然后根据主键到主键索引中检索获得数据记录。
+  
+  **辅助索引等值查询的情况：**
+  
+  ```
+  select * from t_user_innodb where age=19;
+  
+  ```
+  
+  ![](https://img-blog.csdnimg.cn/175b62fdfe7c48d6a017e3506272f953.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
+  **在辅助索引树中获取到主键 id，再根据主键 id 到主键索引数中检索数据的的过程称为`回表查询`。**
+  
+  **磁盘 IO 数（从根节点开始）：辅助索引 3 次 + 回表过程 3 次。**
+- ### 3.2.3、组合索引
+  
+  *   以表 abc_innodb 为例，id 列为主键索引，创建一个联合索引`idx_abc(a，b，c)`。
+  
+  ```
+  CREATE TABLE `abc_innodb`
+  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `a`  int(11)     DEFAULT NULL,
+  `b`  int(11)     DEFAULT NULL,
+  `c`  varchar(10) DEFAULT NULL,
+  `d`  varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `idx_abc` (`a`, `b`, `c`)
+  ) ENGINE = InnoDB;
+  
+  ```
+  
+  **组合索引的数据结构：**  
+  ![](https://img-blog.csdnimg.cn/1c72e1da60724e9d9f9a73e6ab625079.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)  
+  **组合索引的查询过程：**
+  
+  ```
+  select * from abc_innodb where a = 13 and b = 16 and c = 4;
+  
+  ```
+  
+  ![](https://img-blog.csdnimg.cn/d7c8ff7d92b347738c3adceba17d8dee.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5LiA5a6_5ZCb,size_20,color_FFFFFF,t_70,g_se,x_16)
+- ### 3.2.4、最左匹配原则
+  
+  最左前缀匹配原则和联合索引的`索引存储结构和检索方式`是有关系的。
+  
+  在组合索引树中，最底层的叶子节点按照第一列 a 列从左到右递增排序，但是 b 列和 c 列是无序的，b 列只有在 a 列值相等的情况下小范围内有序递增；而 clie 只能在 a 和 b 两列值相等的情况下小范围内有序递增。
+  
+  就像上面的查询，B+ 树会先比较 a 列来确定下一步应该检索的方向，往左还是往右。如果 a 列相同再比较 b 列，但是如果查询条件中没有 a 列，B + 树就不知道第一步应该从那个节点开始查起。
+  
+  可以说创建的 idx_(a，b，c)索引，相当于创建了 (a)、(a，b)、(a，b，c) 三个索引。
+  
+  **组合索引的最左前缀匹配原则：**
+  
+  > 使用组合索引查询时，mysql 会一直向右匹配直至遇到范围查询 (>、<、between、like) 等就会停止匹配。
+  ### 3.2.5、覆盖索引
+  
+  > **== 覆盖索引并不是一种索引结构，覆盖索引是一种很常用的优化手段 ==。因为在使用辅助索引的时候，我们只可以拿到相应的主键值，想要获取最终的数据记录，还需要根据主键通过主键索引再去检索，最终获取到符合条件的数据记录。**
+  > 
+  > **在上面的 abc_innodb 表中的组合索引查询时，如果我们查询的结果只需要 a、b、c 这三个字段，那我们使用这个 idx_index(a，b，c) 组合索引查询到叶子节点时就可以直接返回了，而不需要再次回表查询，这种情况就是 == 覆盖索引 ==。**
+  
+  4.1、回表查询
+  --------
+  
+  在 InnoDB 的存储引擎中，使用辅助索引查询的时候，因为辅助索引叶子节点保存的数据不是当前数据记录，而是当前数据记录的主键索引。如果需要获取当前记录完整的数据，就必须要再次根据主键从主键索引中继续检索查询，这个过程我们称之为**回表查询**。
+  
+  由此可见，在数据量比较大的时候，回表必然会消耗很多的时间影响性能，所以我们要尽量避免回表的发生。
+  
+  4.2、如何避免回表
+  ----------
+  
+  使用覆盖索引，举个例子：现有 User 表
+  
+  ```
+  CREATE TABLE `user`
+  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name`  int(11)     DEFAULT NULL,
+  `sex`  char(3)     DEFAULT NULL,
+  `address`  varchar(10) DEFAULT NULL,
+  `hobby`  varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  KEY `i_name` (`name`)
+  ) ENGINE = InnoDB;
+  
+  ```
+  
+  如果有一个场景:
+  
+  ```
+  select id,name,sex from user where name = 'zhangsan';
+  
+  ```
+  
+  这个语句在业务上频繁使用到，而 user 表中的其他字段使用频率远低于这几个字段，在这个情况下，如果我们在建立 name 字段的索引时，不是使用单一索引，而是使用`联合索引（name，sex）`，这样的话再执行这个查询语句，根据这个辅助索引`（name，sex）`查询到的结果就包括了我们所需要的查询结果的所有字段的完整数据，这样就不需要再次回表查询去检索 sex 字段的数据了。
+  
+  > **以上就是一个典型的使用覆盖索引的优化策略减少了回表查询的情况。**
+  
+  4.3、联合索引的使用
+  -----------
+  
+  **联合索引：**
+  
+  > 在建立索引的时候，尽量在多个单列索引上判断是否可以使用联合索引。联合索引的使用不仅可以节省空间，还可以更容易的使用到覆盖索引。
+  
+  **节省空间：**
+  
+  > 试想一下，索引的字段越多，是不是更容易满足查询需要返回的数据呢？比如联合索引`（a，b，c）`是不是等于有了：`a`、`（a，b）`、`（a，b，c）`三个索引，这样是不是节省了空间，当然节省的空间并不是三倍于`a`、`（a，b）`、`（a，b，c）`三个索引所占用的空间，但是联合索引中 data 字段数据所占用的空间确实节省了不少。
+  
+  **联合索引的创建原则：**
+  
+  > 在创建联合索引的时候应该把频繁使用的列、区分度高的列放在前面，频繁使用代表索引利用率高，区分度高代表筛选力度大，这些都是在创建索引的时候需要考虑到的优化场景，也可以将常需要作为查询返回的字段增加到联合索引中。
+  > 
+  > **如果在联合索引上增加了一个字段，而恰好满足了使用覆盖索引的情况，这种情况建议使用联合索引。**
+  
+  **联合索引的使用：**
+  
+  *   考虑到当前是否已经存在多个可以合并的单列索引，如果有，那么推荐将当前的多个单列索引创建为一个联合索引。
+  *   当前索引存在频繁使用，在结果中有一个列也被频繁查询，而这个列不在当前频繁使用的索引中，那么这个时候就可以考虑这个列是否可以加入到当前频繁使用的索引中，使其查询语句可以使用到覆盖索引。
