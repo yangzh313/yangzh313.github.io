@@ -8,4 +8,6 @@
 		- [Source Control in VSCode is not refreshed automatically](https://stackoverflow.com/questions/71181697/source-control-in-vscode-is-not-refreshed-automatically)
 		  id:: 64f68456-bbc4-4077-8841-418122567d2c
 			- add `"git.autorefresh": true,` to user setting
--
+	- settings
+		- [[开启WSL2时vmmem进程占用内存过多的问题]]
+		-
