@@ -56,8 +56,7 @@
 		  yum install -y targetcli
 		  ```
 	- 创建**Storage Block**
-		- ```
-		  [root@node2 ~]# targetcli
+		- [root@node2 ~]# targetcli
 		  Warning: Could not load preferences file /root/.targetcli/prefs.bin.
 		  targetcli shell version 2.1.53
 		  Copyright 2011-2013 by Datera, Inc and others.
@@ -80,7 +79,6 @@
 		    o- block1 ............................... [/dev/vdb1 (10.0GiB) write-thru deactivated]
 		      o- alua ........................................................... [ALUA Groups: 1]
 		        o- default_tg_pt_gp ............................... [ALUA state: Active/optimized]
-		  ```
 	- Create a **TPG** (Target Portal Group).
 		- ```
 		  /backstores/block> cd /iscsi
